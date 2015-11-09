@@ -3,14 +3,18 @@
 set -x
 set -e
 
-mv -f ~/.vimrc ~/.vimrc.bak
+if [ -e ~/.vimrc ]; then
+	mv -f ~/.vimrc ~/.vimrc.bak
+fi
 ln -s `pwd`/vimrc ~/.vimrc
 
-mv -f ~/.bashrc ~/.bashrc.bak
+if [ -e ~/.bashrc ]; then
+	mv -f ~/.bashrc ~/.bashrc.bak
+fi
 ln -s  `pwd`/bashrc ~/.bashrc
 
-if -e ~/.git-completion.bash; then
-	mv ~/.git-completion.bash ~/.git-completion.bash
+if [ -e ~/.git-completion.bash ]; then
+	mv ~/.git-completion.bash ~/.git-completion.bash.bak
 fi
 ln -s `pwd`/git-completion.bash ~/.git-completion.bash
 
