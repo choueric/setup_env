@@ -3,6 +3,8 @@ syntax on
 "set nobackup
 "set backupdir=$HOME/tmp/vimtmp
 
+set directory=~/tmp//,.,/var/tmp//,/tmp//
+
 filetype indent on
 set autoindent
 
@@ -13,6 +15,7 @@ set tabstop=4
 
 " Number of spaces to use for each step of (auto)indent. 
 set shiftwidth=4
+
 
 set clipboard=unnamed
 

@@ -16,7 +16,7 @@ shopt -s histappend
 # ---------------------------- zhs setup --------------------------------------------
 # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 set -o vi
-PATH=$PATH:/sbin:/usr/sbin
+PATH=$PATH:/sbin:/usr/sbin:$HOME/bin
 
 # Use VIm as man pager
 vman () {
