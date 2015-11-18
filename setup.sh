@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -x
 set -e
@@ -11,10 +11,20 @@ function copy_file {
 	ln -s `pwd`/$1 ~/.$1
 }
 
-copy_file vimrc
-copy_file bashrc
-copy_file git-completion.bash
-copy_file tmux.conf
+if [ "$1" == "" ];
+then
+	echo "#### all ####"
+	copy_file vimrc
+	copy_file bashrc
+	copy_file git-completion.bash
+	copy_file tmux.conf
 
-git config --global user.name choueric
-git config --global user.email zhssmail@gmail.com
+	git config --global user.name choueric
+	git config --global user.email zhssmail@gmail.com
+fi
+
+if [ "$1" == "copy" ];
+then
+	echo "#### copy $2 ####"
+	copy_file $2
+fi
