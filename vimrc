@@ -90,3 +90,8 @@ let g:vimwik_menu = ''
 let g:vimwik_folding = 0
 " 在计算字符串长度时特别考虑中文字符
 let g:vimwik_CJK_length = 1
+
+
+" for gui "
+" use :set guifont=* to show the font dialog "
+set guifont=Monospace\ 12

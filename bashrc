@@ -141,6 +141,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
-export GOPATH=$HOME/workspace/go
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/workspace/golang
 source $HOME/.git-completion.bash
 ulimit -c unlimited
