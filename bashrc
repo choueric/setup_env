@@ -113,6 +113,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+
+	alias less='less -r'
+	alias diff='colordiff'
 fi
 
 # some more ls aliases
@@ -141,7 +144,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/workspace/golang
+export PATH=$PATH:/usr/local/go/bin:$HOME/workspace/golang/go_appengine
+export GOPATH=$HOME/workspace/golang/workspace
 source $HOME/.git-completion.bash
 ulimit -c unlimited
+export TMP=$HOME/tmp
