@@ -31,6 +31,8 @@ set nu
 "set ruler
 set guioptions-=m
 set guioptions-=T
+set guioptions-=r
+set guioptions-=L
 
 set directory=~/tmp//,/var/tmp//,/tmp//,.
 
@@ -72,6 +74,7 @@ set fencs=utf-8,gb2312,ucs-bom,gb18030,gbk,cp936,big5
 set laststatus=2
 set t_Co=256
 let g:Powerline_symbols = 'unicode'
+let g:Powerline_colorscheme = 'solarized256'
 set encoding=utf8
 
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -83,8 +86,8 @@ let g:vimwiki_use_mouse = 1
 			"\'html_header':,}]
 let wiki = {}
 let wiki.path = '~/Dropbox/vimwiki/'
-let wiki.path_html = '~/Dropbox/vimwiki/html/'
-let wiki.html_header = '~/Dropbox/vimwiki/html/header.tpl'
+let wiki.path_html = '~/vimwiki/html/'
+"let wiki.html_header = '~/Dropbox/vimwiki/html/header.tpl'
 let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'c': 'c', 'sh': 'sh'}
 let g:vimwiki_list = [wiki]
 " 不使能驼峰英文
@@ -131,20 +134,33 @@ map <F8> A<space><space><space><space>//
 imap <F8> <esc>A<space><space><space><space>//
 
 " 该键可以向下新建一行，并填上注释符"/* */"
-map <F9> <esc>O/*  */<esc>hhha
-imap <F9> <esc>O/*  */<esc>hhha
+map <F11> <esc>O/*  */<esc>hhha
+imap <F11> <esc>O/*  */<esc>hhha
 
 " 该键可以向上新建一行，并填上注释符"/* */"
 map <F10> <esc>O/*  */<esc>hhha
 imap <F10> <esc>O/*  */<esc>hhha
 
 " 定义在一行的前面添加"//"符号，即在程序编写中使该行成为注释
-map <F11> I//
-imap <F11> <esc>I//
+map <F9> I//<esc>
+imap <F9> <esc>I//<esc>
 
 " 定义取消一行的前两个符号，适用于取消程序注释行的前面的"//"，即取消注释
 map <F12> ^xx
 imap <F12> <esc>^xx
+
+map _ *N
+
+" move window
+map <C-up> <C-W>+
+map <C-down> <C-W>-
+map <C-left> <C-W><
+map <C-right> <C-W>>
+
+" move between tabs
+map <C-l> <esc>gt
+map <C-h> <esc>gT
+
 
 
 " 使用可视模式选中一段文字后，使用/或?来全文搜索该段文字

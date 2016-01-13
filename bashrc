@@ -149,3 +149,5 @@ export GOPATH=$HOME/workspace/golang/workspace
 source $HOME/.git-completion.bash
 ulimit -c unlimited
 export TMP=$HOME/tmp
+export SVN=/home/zhs/workspace/ti8107/svn/EmbPlatformDM8107/trunk
+export PATH=$PATH:/home/zhs/workspace/ti8107/toolchain/cgt_a8/arago/linux-devkit/bin
