@@ -149,5 +149,18 @@ export GOPATH=$HOME/workspace/golang/workspace
 source $HOME/.git-completion.bash
 ulimit -c unlimited
 export TMP=$HOME/tmp
-export SVN=/home/zhs/workspace/ti8107/svn/EmbPlatformDM8107/trunk
+#export SVN=/home/zhs/workspace/ti8107/svn/EmbPlatformDM8107/trunk
+export SVN=/home/zhs/workspace/gbox/svn/trunk/BSP
+export GBOX=/home/zhs/workspace/gbox
 export PATH=$PATH:/home/zhs/workspace/ti8107/toolchain/cgt_a8/arago/linux-devkit/bin
+export GST_PLUGIN_PATH=/usr/local/lib/gstreamer-1.0/
+export PATH=$GBOX/sdk/Hi3516A_V100R001C01SPC050/01.software/board/Hi3516A_SDK_V1.0.5.0/osdrv/opensource/toolchain/arm-hisiv400-linux/arm-hisiv400-linux/bin:$PATH
+
+case "$TERM" in
+    xterm)
+        export TERM=xterm-256color
+        ;;
+    screen)
+        export TERM=screen-256color
+        ;;
+esac

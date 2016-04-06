@@ -13,6 +13,8 @@ Plugin 'fatih/vim-go'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'vimwiki/vimwiki'
 Plugin 'lrvick/Conque-Shell'
+Plugin 'taglist.vim'
+Plugin 'AnsiEsc.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -112,7 +114,9 @@ set guifont=Monospace\ 12
 " key binding
 """"""""""""""""""""""""""""""""""""""""""""""
 "<F1> is help
-"<F2> 
+
+map <F2> :Tlist<CR>
+imap <F2> <esc>:Tlist<CR>
 
 " copy
 map <F3> "+y
