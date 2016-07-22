@@ -15,6 +15,9 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'lrvick/Conque-Shell'
 Plugin 'taglist.vim'
 Plugin 'AnsiEsc.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-surround'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
