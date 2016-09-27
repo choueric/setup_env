@@ -18,9 +18,7 @@ then
 	copy_file bashrc
 	copy_file git-completion.bash
 	copy_file tmux.conf
-
-	git config --global user.name choueric
-	git config --global user.email zhssmail@gmail.com
+	copy_file gitconfig
 fi
 
 if [ "$1" == "copy" ];

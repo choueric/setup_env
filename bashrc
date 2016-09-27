@@ -106,13 +106,9 @@ if [ -x /usr/bin/dircolors ]; then
     #alias dir='ls --color=auto --format=vertical'
     #alias vdir='ls --color=auto --format=long'
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+    alias grep='grep --color=auto --exclude-dir=.git'
+    alias fgrep='fgrep --color=auto --exclude-dir=.git'
+    alias egrep='egrep --color=auto --exclude-dir=.git'
 
 	alias less='less -r'
 	alias diff='colordiff'
@@ -143,9 +139,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-
 export PATH=$PATH:/usr/local/go/bin:$HOME/workspace/golang/go_appengine
 export GOPATH=$HOME/workspace/golang/workspace
+export PATH=$PATH:$GOPATH/bin
 source $HOME/.git-completion.bash
 ulimit -c unlimited
 export TMP=$HOME/tmp
@@ -164,3 +160,10 @@ case "$TERM" in
         export TERM=screen-256color
         ;;
 esac
+
+source ~/workspace/TK1/ndk_package/env_config.sh
+
+
+export PATH=$PATH:"/home/zhs/NVPACK/cuda-7.0/bin"
+export CUDA_TOOLKIT_ROOT="/home/zhs/NVPACK/cuda-7.0"
+export CUDA_TOOLKIT_ROOT_7_0="/home/zhs/NVPACK/cuda-7.0"

@@ -1,0 +1,10 @@
+[user]
+	name = zhs
+	email = haishan.zhou@magewell.com
+[push]
+	default = simple
+[core]
+	quotepath = false
+	editor = vim
+[color]
+	ui = auto
