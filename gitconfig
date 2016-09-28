@@ -8,3 +8,6 @@
 	editor = vim
 [color]
 	ui = auto
+[alias]
+	st = status -s
+	l = log --pretty=oneline
