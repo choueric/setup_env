@@ -21,3 +21,5 @@
 	br = branch -vv
 	diff = diff --check
 	extdiff = difftool
+[log]
+	follow = true
