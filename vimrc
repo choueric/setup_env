@@ -27,6 +27,7 @@ let g:go_fmt_command = "goimports"
 " YouCompleteMe
 """"""""""""""""""""""""""""""""""""""""""""""
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_enable_diagnostic_highlighting = 0
 
 
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -38,6 +39,7 @@ set autoindent
 filetype plugin indent on
 set completeopt=longest,menu
 colorscheme koehler
+highlight Search guibg='Orange' guifg='White' ctermfg='White' ctermbg='Blue'
 set nu
 "set showcmd
 "set ruler
@@ -45,7 +47,6 @@ set guioptions-=m
 set guioptions-=T
 set guioptions-=r
 set guioptions-=L
-
 set directory=~/tmp//,/var/tmp//,/tmp//,.
 
 " use spaces to insert <tab>
