@@ -8,6 +8,18 @@
 	editor = vim
 [color]
 	ui = auto
+[color "diff"]
+	meta = yellow ul
+	frag = cyan bold
+	old = red bold
+	new = green bold
 [alias]
 	st = status -s
-	l = log --pretty=oneline
+	l = log --oneline
+	co = checkout
+	la = log --oneline --decorate --graph --all
+	br = branch -vv
+	diff = diff --check
+	extdiff = difftool
+[log]
+	follow = true
