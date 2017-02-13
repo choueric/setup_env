@@ -161,9 +161,6 @@ case "$TERM" in
         ;;
 esac
 
-source ~/workspace/TK1/ndk_package/env_config.sh
-
-
 export PATH=$PATH:"/home/zhs/NVPACK/cuda-7.0/bin"
 export CUDA_TOOLKIT_ROOT="/home/zhs/NVPACK/cuda-7.0"
 export CUDA_TOOLKIT_ROOT_7_0="/home/zhs/NVPACK/cuda-7.0"
