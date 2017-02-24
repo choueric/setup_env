@@ -162,9 +162,9 @@ imap <F10> <esc>O/*  */<esc>hhha
 map <F9> I//<esc>
 imap <F9> <esc>I//<esc>
 
-" 定义取消一行的前两个符号，适用于取消程序注释行的前面的"//"，即取消注释
-map <F12> ^xx
-imap <F12> <esc>^xx
+" 设置文件类型为markdown
+map <F12> :set ft=markdown<CR>
+imap <F12> <esc>:set ft=markdown<CR>
 
 map _ *N
 
