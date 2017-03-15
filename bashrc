@@ -140,18 +140,14 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export PATH=$PATH:/usr/local/go/bin:$HOME/workspace/golang/go_appengine
+export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 source $HOME/.git-completion.bash
 ulimit -c unlimited
 export TMP=$HOME/tmp
-#export SVN=/home/zhs/workspace/ti8107/svn/EmbPlatformDM8107/trunk
-export SVN=/home/zhs/workspace/gbox/svn/trunk/BSP
-export GBOX=/home/zhs/workspace/gbox
-export PATH=$PATH:/home/zhs/workspace/ti8107/toolchain/cgt_a8/arago/linux-devkit/bin
+
 export GST_PLUGIN_PATH=/usr/local/lib/gstreamer-1.0/
-export PATH=$GBOX/sdk/Hi3516A_V100R001C01SPC050/01.software/board/Hi3516A_SDK_V1.0.5.0/osdrv/opensource/toolchain/arm-hisiv400-linux/arm-hisiv400-linux/bin:$PATH
 
 case "$TERM" in
     xterm)
@@ -162,6 +158,10 @@ case "$TERM" in
         ;;
 esac
 
-export PATH=$PATH:"/home/zhs/NVPACK/cuda-7.0/bin"
-export CUDA_TOOLKIT_ROOT="/home/zhs/NVPACK/cuda-7.0"
-export CUDA_TOOLKIT_ROOT_7_0="/home/zhs/NVPACK/cuda-7.0"
+source $HOME/.magewellrc
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/zhs/workspace/gCloud/sdk/google-cloud-sdk/path.bash.inc' ]; then source '/home/zhs/workspace/gCloud/sdk/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/zhs/workspace/gCloud/sdk/google-cloud-sdk/completion.bash.inc' ]; then source '/home/zhs/workspace/gCloud/sdk/google-cloud-sdk/completion.bash.inc'; fi
