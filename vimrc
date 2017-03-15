@@ -150,17 +150,13 @@ imap <F7> <C-R>=strftime("%c")<CR><esc>
 map <F8> A<space><space><space><space>//
 imap <F8> <esc>A<space><space><space><space>//
 
-" 该键可以向下新建一行，并填上注释符"/* */"
-map <F11> <esc>O/*  */<esc>hhha
-imap <F11> <esc>O/*  */<esc>hhha
-
-" 该键可以向上新建一行，并填上注释符"/* */"
-map <F10> <esc>O/*  */<esc>hhha
-imap <F10> <esc>O/*  */<esc>hhha
-
 " 定义在一行的前面添加"//"符号，即在程序编写中使该行成为注释
 map <F9> I//<esc>
 imap <F9> <esc>I//<esc>
+
+" remove comment.
+map <F10> ^xx
+imap <F10> <esc>^xx
 
 " 设置文件类型为markdown
 map <F12> :set ft=markdown<CR>
