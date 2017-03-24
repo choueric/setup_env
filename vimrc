@@ -13,11 +13,11 @@ Plugin 'fatih/vim-go'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'vimwiki/vimwiki'
 Plugin 'lrvick/Conque-Shell'
-Plugin 'taglist.vim'
+"Plugin 'taglist.vim'
 Plugin 'AnsiEsc.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'tpope/vim-surround'
+Plugin 'majutsushi/tagbar'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -28,6 +28,20 @@ let g:go_fmt_command = "goimports"
 """"""""""""""""""""""""""""""""""""""""""""""
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_enable_diagnostic_highlighting = 0
+
+
+""""""""""""""""""""""""""""""""""""""""""""""
+" TagBar
+""""""""""""""""""""""""""""""""""""""""""""""
+" support markdown
+let g:tagbar_type_markdown = {
+        \ 'ctagstype' : 'markdown',
+        \ 'kinds' : [
+                \ 'h:headings',
+        \ ],
+    \ 'sort' : 0
+\ }
+let g:tagbar_left = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -128,8 +142,9 @@ set guifont=Monospace\ 12
 """"""""""""""""""""""""""""""""""""""""""""""
 "<F1> is help
 
-map <F2> :Tlist<CR>
-imap <F2> <esc>:Tlist<CR>
+" tagbar
+map <F2> :TagbarToggle<CR>
+imap <F2> <esc>:TagbarToggle<CR>
 
 " copy
 map <F3> "+y

@@ -19,6 +19,7 @@ then
 	copy_file git-completion.bash
 	copy_file tmux.conf
 	copy_file gitconfig
+	copy_file ctags
 fi
 
 if [ "$1" == "copy" ];
