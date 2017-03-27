@@ -13,7 +13,7 @@ Plugin 'fatih/vim-go'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'vimwiki/vimwiki'
 Plugin 'lrvick/Conque-Shell'
-"Plugin 'taglist.vim'
+Plugin 'tpope/vim-surround'
 Plugin 'AnsiEsc.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
@@ -42,7 +42,7 @@ let g:tagbar_type_markdown = {
     \ 'sort' : 0
 \ }
 let g:tagbar_left = 1
-
+let g:tagbar_width = 30
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " misc
