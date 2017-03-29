@@ -159,8 +159,8 @@ map <F6> <esc>:ConqueTermVSplit bash<CR>
 imap <F6> <esc>:ConqueTermVSplit bash<CR>
 
 " 快捷键入当前时间
-map <F7> a<C-R>=strftime("%c")<CR><esc>
-imap <F7> <C-R>=strftime("%c")<CR><esc>
+map <F7> a<C-R>=strftime("%Y-%m-%d %T")<CR><esc>
+imap <F7> <C-R>=strftime("%Y-%m-%d %T")<CR><esc>
 " 该键在一行的最后空出四个空白然后添加"//"，并保持输入状态，作用是可以添加注释方便
 map <F8> A<space><space><space><space>//
 imap <F8> <esc>A<space><space><space><space>//
