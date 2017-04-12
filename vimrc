@@ -18,6 +18,8 @@ Plugin 'AnsiEsc.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-surround'
+Plugin 'geoffharcourt/vim-matchit'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -28,7 +30,6 @@ let g:go_fmt_command = "goimports"
 """"""""""""""""""""""""""""""""""""""""""""""
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_enable_diagnostic_highlighting = 0
-
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " TagBar
@@ -71,7 +72,11 @@ set tabstop=4
 set shiftwidth=4
 
 " 设置到系统粘帖板
-set clipboard=unnamed
+if has("mac")
+	"set clipboard=unnamed
+else
+	set clipboard=unnamed
+endif
 
 set colorcolumn=80
 
