@@ -1,6 +1,8 @@
 [user]
-	name = choueric
-	email = zhssmail@gmail.com
+	#name = choueric
+	#email = zhssmail@gmail.com
+	name = zhs
+	email = haishan.zhou@magewell.com
 [push]
 	default = simple
 [core]
@@ -9,8 +11,8 @@
 [color]
 	ui = auto
 [color "diff"]
-	meta = yellow ul
-	frag = cyan bold
+	meta = white reverse
+	frag = cyan reverse bold
 	old = red bold
 	new = green bold
 [alias]
