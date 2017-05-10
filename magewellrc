@@ -9,3 +9,6 @@ export PATH=$PATH:"/home/zhs/NVPACK/cuda-7.0/bin"
 export CUDA_TOOLKIT_ROOT="/home/zhs/NVPACK/cuda-7.0"
 export CUDA_TOOLKIT_ROOT_7_0="/home/zhs/NVPACK/cuda-7.0"
 export PATH=$PATH:"/home/zhs/NVPACK/android-ndk-r10e/toolchains/arm-linux-androideabi-4.6/gen_standalone/linux-x86_64/bin"
+
+export LD_LIBRARY_PATH=/usr/local/cuda-6.5/lib64:$LD_LIBRARY_PATH
+export PATH=/usr/local/cuda-6.5/bin:$PATH

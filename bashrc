@@ -80,7 +80,7 @@ else
 fi
 unset color_prompt force_color_prompt
 
-PS1='\n\[\033[01;32m\]\u@\h-[\t]\[\033[00m\]\[\e[31;1m\][jobs:\j]\[\e[39;1m\]:\[\033[01;34m\]\w\[\033[00m\]\n\[\033[01;46m\]-->\[\033[00m\] '
+PS1='\n\[\033[01;32m\]\u@\h-[\t]\[\033[00m\]\[\e[31;1m\][jobs:\j]\[\e[39;1m\]: \[\033[01;34m\]\w\[\033[00m\]\n\[\033[01;46m\]-->\[\033[00m\] '
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -115,12 +115,12 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alF'
-alias lh='ls -alFh'
+alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
 alias less='less -N'
 alias suredo='sudo !!'
+alias dmesg='dmesg --human'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
