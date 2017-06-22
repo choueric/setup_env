@@ -80,7 +80,13 @@ else
 fi
 unset color_prompt force_color_prompt
 
-PS1='\n\[\033[01;32m\]\u@\h-[\t]\[\033[00m\]\[\e[31;1m\][jobs:\j]\[\e[39;1m\]: \[\033[01;34m\]\w\[\033[00m\]\n\[\033[01;46m\]-->\[\033[00m\] '
+PS_NAME='\[\e[01;32m\]\u\[\e[31;1m\]'
+PS_HOST='\[\e[01;33m\]\h\[\e[31;1m\]'
+PS_TIME='\[\e[01;32m\][\t]\[\e[31;1m\]'
+PS_JOBS='\[\e[01;31m\][jobs:\j]\[\e[31;1m\]'
+PS_PATH='\[\e[01;34m\]\w\[\e[00m\]'
+PS_DASH='\[\e[01;46m\]-->\[\e[00m\]'
+PS1='\n'$PS_NAME'@'$PS_HOST' '$PS_TIME$PS_JOBS': '$PS_PATH'\n'$PS_DASH' '
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
