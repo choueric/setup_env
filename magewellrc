@@ -12,3 +12,5 @@ export PATH=$PATH:"/home/zhs/NVPACK/android-ndk-r10e/toolchains/arm-linux-androi
 
 export LD_LIBRARY_PATH=/usr/local/cuda-6.5/lib64:$LD_LIBRARY_PATH
 export PATH=/usr/local/cuda-6.5/bin:$PATH
+
+export L4T=$HOME/workspace/TK1/l4t
