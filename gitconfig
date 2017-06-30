@@ -31,3 +31,12 @@
 	proxy = socks5://127.0.0.1:1080
 [https]
 	proxy = socks5://127.0.0.1:1080
+[sendemail]
+	from = Haishan Zhou <zhssmail@gmail.com>
+	smtpuser = zhssmail@gmail.com
+	smtpserver = smtp.gmail.com
+	smtpserverport = 465
+	smtpencryption = ssl
+	chainreplyto = false
+	smtppass = xxx
+	suppresscc = self
