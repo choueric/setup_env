@@ -80,13 +80,17 @@ else
 fi
 unset color_prompt force_color_prompt
 
-PS_NAME='\[\e[1;32m\]\u\[\e[0m\]'
-PS_HOST='\[\e[1;33m\]\h\[\e[0m\]'
-PS_TIME='\[\e[1;32m\]\t\[\e[0m\]'
-PS_JOBS='\[\e[1;31m\]\j\[\e[0m\]'
-PS_PATH='\[\e[1;34m\]\w\[\e[0m\]'
-PS_DASH='\[\e[1;46m\]-->\[\e[0m\]'
-PS1='\n'$PS_NAME'@'$PS_HOST'|'$PS_TIME'|'$PS_JOBS'|'$(echo \$?)' '$PS_PATH'\n'$PS_DASH' '
+function git_branch {
+   branch="`git branch 2>/dev/null | grep "^\*" | sed -e "s/^\*\ //"`"
+   if [ "${branch}" != "" ];then
+       if [ "${branch}" = "(no branch)" ];then
+           branch="(`git rev-parse --short HEAD`...)"
+       fi
+       echo "|$branch"
+   fi
+}
+
+PS1='\n\[\e[1;32m\]\u\[\e[0m\]@\[\e[1;33m\]\h\[\e[0m\]|\[\e[1;32m\]\t\[\e[0m\]|\[\e[1;31m\]\j\[\e[0m\]|$(echo $?)\[\e[1;32m\]$(git_branch)\[\e[0m\] \[\e[1;34m\]\w\[\e[0m\]\n\[\e[1;46m\]-->\[\e[0m\] '
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
