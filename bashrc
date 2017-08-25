@@ -131,6 +131,7 @@ alias l='ls -CF'
 alias less='less -N'
 alias suredo='sudo !!'
 alias dmesg='dmesg --human'
+alias gotop='cd `git rev-parse --show-toplevel`'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
