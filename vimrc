@@ -185,10 +185,6 @@ imap <F9> <esc>I//<esc>
 map <F10> ^xx
 imap <F10> <esc>^xx
 
-" 设置文件类型为markdown
-map <F12> :set ft=markdown<CR>
-imap <F12> <esc>:set ft=markdown<CR>
-
 map _ *N
 
 " move window
