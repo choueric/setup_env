@@ -41,6 +41,14 @@ let g:tagbar_type_markdown = {
         \ ],
     \ 'sort' : 0
 \ }
+
+let g:tagbar_type_vimwiki = {
+        \ 'ctagstype' : 'markdown',
+        \ 'kinds' : [
+                \ 'h:headings',
+        \ ],
+    \ 'sort' : 0
+\ }
 let g:tagbar_left = 1
 let g:tagbar_width = 30
 
