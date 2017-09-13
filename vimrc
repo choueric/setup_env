@@ -51,7 +51,14 @@ let g:tagbar_type_vimwiki = {
 \ }
 let g:tagbar_left = 1
 let g:tagbar_width = 30
-autocmd FileType markdown nested :TagbarOpen
+autocmd FileType markdown nested :TagbarToggle
+
+""""""""""""""""""""""""""""""""""""""""""""""
+" auto format
+" see more `:help fo-table` and `:help fo`
+" use 'gq' to format select texts in visual mode
+""""""""""""""""""""""""""""""""""""""""""""""
+"set fo+=a
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " misc
@@ -179,12 +186,12 @@ map <F8> A<space><space><space><space>//
 imap <F8> <esc>A<space><space><space><space>//
 
 " 定义在一行的前面添加"//"符号，即在程序编写中使该行成为注释
-map <F9> I//<esc>
-imap <F9> <esc>I//<esc>
+map <F9> I// <esc>
+imap <F9> <esc>I// <esc>
 
 " remove comment.
-map <F10> ^xx
-imap <F10> <esc>^xx
+map <F10> ^xxx
+imap <F10> <esc>^xxx
 
 map _ *N
 
