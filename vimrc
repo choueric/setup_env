@@ -23,13 +23,19 @@ Plugin 'Konfekt/vim-alias'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+
+""""""""""""""""""""""""""""""""""""""""""""""
+" vim-go
+""""""""""""""""""""""""""""""""""""""""""""""
 let g:go_fmt_command = "goimports"
+
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " YouCompleteMe
 """"""""""""""""""""""""""""""""""""""""""""""
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_enable_diagnostic_highlighting = 0
+
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " TagBar
@@ -54,89 +60,24 @@ let g:tagbar_left = 1
 let g:tagbar_width = 30
 autocmd FileType markdown nested :TagbarToggle
 
+
 """"""""""""""""""""""""""""""""""""""""""""""
 " vim-alias
 """"""""""""""""""""""""""""""""""""""""""""""
 autocmd VimEnter * nested :Alias t tabnew
 
 """"""""""""""""""""""""""""""""""""""""""""""
-" auto format
-" see more `:help fo-table` and `:help fo`
-" use 'gq' to format select texts in visual mode
+" status bar & Powerline
 """"""""""""""""""""""""""""""""""""""""""""""
-set fo+=mM  " for multi_byte charactors such as Chinese
-set fo+=j   " when join comments, delete the // charactors
-
-""""""""""""""""""""""""""""""""""""""""""""""
-" misc
-""""""""""""""""""""""""""""""""""""""""""""""
-syntax on
-filetype indent on
-set autoindent
-filetype plugin indent on
-set completeopt=longest,menu
-colorscheme koehler
-set nu
-"set showcmd
-"set ruler
-set guioptions-=m
-set guioptions-=T
-set guioptions-=r
-set guioptions-=L
-set directory=~/tmp//,/var/tmp//,/tmp//,.
-
-" use spaces to insert <tab>
-"set expandtab
-" number of spaces to insert tab
-set tabstop=4
-" Number of spaces to use for each step of (auto)indent. 
-set shiftwidth=4
-
-" 设置到系统粘帖板
-if has("mac")
-	"set clipboard=unnamed
-else
-	set clipboard=unnamed
-endif
-
-set colorcolumn=80
-set modeline
-set modelines=5
-
-" highlight the line cursor is
-"set cursorline
-" highlight the column cursor is
-"set cursorcolumn
-
-" enable backspace (0, 1 disable)
-set backspace=2
-
-" ingnor case when search
-set ic
-" highlight search
-highlight Search ctermfg=White ctermbg=Blue
-highlight Search guifg=White guibg=Orange
-set hls
-
-" file encode
-set fenc=utf-8
-set fencs=utf-8,gb2312,ucs-bom,gb18030,gbk,cp936,big5
-
-" show statusbar
-"set statusline=%F%m%r%h%w\ [%{&ff}\ %Y]\ [ASCII=\%03.3b\ HEX=\%02.2B]\ [%p%%\ %L]
-"set statusline=[%{&ff}]\ [%Y]\ [%l,%v]\ %p%%\ %L
 set laststatus=2
 let g:Powerline_symbols = 'unicode'
 let g:Powerline_colorscheme = 'solarized256'
-set encoding=utf8
+
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " vimwiki 
 """"""""""""""""""""""""""""""""""""""""""""""
 let g:vimwiki_use_mouse = 1
-"let g:vimwiki_list = [{'path':'/', 
-			"\'path_html':,
-			"\'html_header':,}]
 let wiki = {}
 let wiki.path = '~/Dropbox/vimwiki/'
 let wiki.path_html = '~/vimwiki/html/'
@@ -158,10 +99,96 @@ let g:vimwik_CJK_length = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""
+" formatoptions
+" see more `:help fo-table` and `:help fo`
+" use 'gq' to format select texts in visual mode
+""""""""""""""""""""""""""""""""""""""""""""""
+set fo+=mM  " for multi_byte charactors such as Chinese
+set fo+=j   " when join comments, delete the // charactors
+
+
+""""""""""""""""""""""""""""""""""""""""""""""
+" color, hightlight, things about appearance
+""""""""""""""""""""""""""""""""""""""""""""""
+syntax on
+colorscheme koehler
+set nu
+"set showcmd
+"set ruler
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guioptions-=L
+" use spaces to insert <tab>
+"set expandtab
+" number of spaces to insert tab
+set tabstop=4
+" Number of spaces to use for each step of (auto)indent. 
+set shiftwidth=4
+
+set colorcolumn=80
+set modeline
+set modelines=5
+
+
+""""""""""""""""""""""""""""""""""""""""""""""
+" search
+""""""""""""""""""""""""""""""""""""""""""""""
+" ingnor case when search
+set ic
+" highlight search
+highlight Search ctermfg=White ctermbg=Blue
+highlight Search guifg=White guibg=Orange
+set hls
+
+
+""""""""""""""""""""""""""""""""""""""""""""""
+" indent
+""""""""""""""""""""""""""""""""""""""""""""""
+filetype indent on
+set autoindent
+filetype plugin indent on
+
+
+""""""""""""""""""""""""""""""""""""""""""""""
+" auto complete
+""""""""""""""""""""""""""""""""""""""""""""""
+set completeopt=longest,menu
+
+
+""""""""""""""""""""""""""""""""""""""""""""""
+" clipboard
+""""""""""""""""""""""""""""""""""""""""""""""
+if has("mac")
+	"set clipboard=unnamed
+else
+	set clipboard=unnamed
+endif
+
+
+""""""""""""""""""""""""""""""""""""""""""""""
+" misc
+""""""""""""""""""""""""""""""""""""""""""""""
+" enable backspace (0, 1 disable)
+set backspace=2
+set directory=~/tmp//,/var/tmp//,/tmp//,.
+
+
+""""""""""""""""""""""""""""""""""""""""""""""
+" encoding
+""""""""""""""""""""""""""""""""""""""""""""""
+" file encode
+set fenc=utf-8
+set fencs=utf-8,gb2312,ucs-bom,gb18030,gbk,cp936,big5
+set encoding=utf8
+
+
+""""""""""""""""""""""""""""""""""""""""""""""
 " for gui "
 " use :set guifont=* to show the font dialog "
 """"""""""""""""""""""""""""""""""""""""""""""
 set guifont=Monospace\ 12
+
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " key binding
