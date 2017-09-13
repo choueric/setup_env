@@ -19,6 +19,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-surround'
 Plugin 'geoffharcourt/vim-matchit'
+Plugin 'Konfekt/vim-alias'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -54,11 +55,17 @@ let g:tagbar_width = 30
 autocmd FileType markdown nested :TagbarToggle
 
 """"""""""""""""""""""""""""""""""""""""""""""
+" vim-alias
+""""""""""""""""""""""""""""""""""""""""""""""
+autocmd VimEnter * nested :Alias t tabnew
+
+""""""""""""""""""""""""""""""""""""""""""""""
 " auto format
 " see more `:help fo-table` and `:help fo`
 " use 'gq' to format select texts in visual mode
 """"""""""""""""""""""""""""""""""""""""""""""
-"set fo+=a
+set fo+=mM  " for multi_byte charactors such as Chinese
+set fo+=j   " when join comments, delete the // charactors
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " misc
@@ -69,7 +76,6 @@ set autoindent
 filetype plugin indent on
 set completeopt=longest,menu
 colorscheme koehler
-highlight Search guibg='Orange' guifg='White' ctermfg='White' ctermbg='Blue'
 set nu
 "set showcmd
 "set ruler
@@ -94,7 +100,6 @@ else
 endif
 
 set colorcolumn=80
-
 set modeline
 set modelines=5
 
@@ -109,6 +114,8 @@ set backspace=2
 " ingnor case when search
 set ic
 " highlight search
+highlight Search ctermfg=White ctermbg=Blue
+highlight Search guifg=White guibg=Orange
 set hls
 
 " file encode
@@ -119,7 +126,6 @@ set fencs=utf-8,gb2312,ucs-bom,gb18030,gbk,cp936,big5
 "set statusline=%F%m%r%h%w\ [%{&ff}\ %Y]\ [ASCII=\%03.3b\ HEX=\%02.2B]\ [%p%%\ %L]
 "set statusline=[%{&ff}]\ [%Y]\ [%l,%v]\ %p%%\ %L
 set laststatus=2
-set t_Co=256
 let g:Powerline_symbols = 'unicode'
 let g:Powerline_colorscheme = 'solarized256'
 set encoding=utf8
@@ -204,8 +210,6 @@ map <C-right> <C-W>>
 " move between tabs
 map <C-l> <esc>gt
 map <C-h> <esc>gT
-
-
 
 " 使用可视模式选中一段文字后，使用/或?来全文搜索该段文字
 vnoremap <silent> / y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
