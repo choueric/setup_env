@@ -20,6 +20,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-surround'
 Plugin 'geoffharcourt/vim-matchit'
 Plugin 'Konfekt/vim-alias'
+Plugin 'vim-scripts/DrawIt'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
