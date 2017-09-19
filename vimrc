@@ -59,7 +59,7 @@ let g:tagbar_type_vimwiki = {
 \ }
 let g:tagbar_left = 1
 let g:tagbar_width = 30
-autocmd FileType markdown nested :TagbarToggle
+autocmd FileType markdown nested :TagbarOpen
 
 
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -227,6 +227,9 @@ imap <F9> <esc>I// <esc>
 map <F10> ^xxx
 imap <F10> <esc>^xxx
 
+map <F12> Vgq
+imap <F12> <esc>Vgq
+
 map _ *N
 
 " move window
@@ -238,16 +241,3 @@ map <C-right> <C-W>>
 " move between tabs
 map <C-l> <esc>gt
 map <C-h> <esc>gT
-
-" 使用可视模式选中一段文字后，使用/或?来全文搜索该段文字
-vnoremap <silent> / y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
-vnoremap <silent> ? y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
-
-" 定义使用可视选择块注释
-au FileType haskell,vhdl,ada let b:comment_leader = '-- '
-au FileType vim let b:comment_leader = '" '
-au FileType c,cpp,java let b:comment_leader = '// '
-au FileType sh,make,python let b:comment_leader = '# '
-au FileType tex let b:comment_leader = '% '
-vmap <silent> <F11> :<C-B>sil <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:noh<CR>
-vmap <silent> <F12> :<C-B>sil <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh<CR>
