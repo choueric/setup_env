@@ -86,11 +86,11 @@ function git_branch {
        if [ "${branch}" = "(no branch)" ];then
            branch="(`git rev-parse --short HEAD`...)"
        fi
-       echo "|$branch"
+	   echo "$branch"
    fi
 }
 
-PS1='\n\[\e[1;32m\]\u\[\e[0m\]@\[\e[1;33m\]\h\[\e[0m\]|\[\e[1;32m\]\t\[\e[0m\]|\[\e[1;31m\]\j\[\e[0m\]|$(echo $?)\[\e[1;32m\]$(git_branch)\[\e[0m\] \[\e[1;34m\]\w\[\e[0m\]\n\[\e[1;46m\]-->\[\e[0m\] '
+PS1='\n\[\e[1;32m\]\u\[\e[0m\]@\[\e[1;33m\]\h\[\e[0m\]|\[\e[1;32m\]\t\[\e[0m\]|\[\e[1;34m\]\j\[\e[0m\]|$(echo $?)\[\e[1;31m\] $(git_branch)\[\e[0m\] \[\e[1;34m\]\w\[\e[0m\]\n\[\e[1;46m\]-->\[\e[0m\] '
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
