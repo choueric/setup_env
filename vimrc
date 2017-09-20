@@ -207,10 +207,10 @@ imap <F3> <esc>"+y
 map <F4> "+p
 imap <F4> <esc>"+p
 
-map <F5> <esc>:ConqueTermSplit bash<CR>
-imap <F5> <esc>:ConqueTermSplit bash<CR>
-map <F6> <esc>:ConqueTermVSplit bash<CR>
-imap <F6> <esc>:ConqueTermVSplit bash<CR>
+map <F5> :cn<CR>
+imap <F5> <esc>:cn<CR>
+map <F6> :cp<CR>
+imap <F6> <esc>:cp<CR>
 
 " 快捷键入当前时间
 map <F7> a<C-R>=strftime("%Y-%m-%d %T")<CR><esc>
