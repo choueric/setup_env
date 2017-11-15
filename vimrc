@@ -290,3 +290,5 @@ map <C-right> <C-W>>
 " move between tabs
 map <C-l> <esc>gt
 map <C-h> <esc>gT
+
+:command! Make silent make | unsilent redraw! | cwindow
