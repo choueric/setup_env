@@ -60,13 +60,14 @@ let g:tagbar_type_vimwiki = {
 \ }
 let g:tagbar_left = 1
 let g:tagbar_width = 30
-autocmd FileType markdown nested :TagbarOpen
+autocmd FileType markdown :TagbarOpen
 
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " vim-alias
 """"""""""""""""""""""""""""""""""""""""""""""
 autocmd VimEnter * nested :Alias t tabnew
+
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " status bar & Powerline
