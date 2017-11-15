@@ -133,6 +133,7 @@ alias suredo='sudo !!'
 alias dmesg='dmesg --human'
 alias gotop='cd `git rev-parse --show-toplevel`'
 alias hexdump='hexdump -C'
+alias gcc='gcc -fdiagnostics-color=auto'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
