@@ -6,3 +6,6 @@
 --regex-markdown=/^#{4}[ \t]+([^#]+.*)/.       \1/h,headings/
 --regex-markdown=/^#{5}[ \t]+([^#]+.*)/.         \1/h,headings/
 --regex-markdown=/^#{6}[ \t]+([^#]+.*)/.           \1/h,headings/
+
+--recurse=yes
+--exclude=.git
