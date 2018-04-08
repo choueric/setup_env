@@ -128,7 +128,7 @@ fi
 alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
-alias less='less -N'
+alias less='less -N -R'
 alias suredo='sudo !!'
 alias dmesg='dmesg --human'
 alias gotop='cd `git rev-parse --show-toplevel`'
@@ -155,29 +155,20 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# golang
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
-export KBDASHBOARD=$GOPATH/src/github.com/choueric/kbdashboard
 export PATH=$PATH:$GOPATH/bin
+export KBDASHBOARD=$GOPATH/src/github.com/choueric/kbdashboard
+
 source $HOME/.git-completion.bash
 ulimit -c unlimited
 export TMP=$HOME/tmp
 
-export GST_PLUGIN_PATH=/usr/local/lib/gstreamer-1.0/
-
 case "$TERM" in
-    xterm)
-        export TERM=xterm-256color
-        ;;
-    screen)
-        export TERM=screen-256color
-        ;;
+    xterm) export TERM=xterm-256color ;;
+    screen) export TERM=screen-256color ;;
 esac
 
-source $HOME/.magewellrc
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/zhs/workspace/gCloud/sdk/google-cloud-sdk/path.bash.inc' ]; then source '/home/zhs/workspace/gCloud/sdk/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/zhs/workspace/gCloud/sdk/google-cloud-sdk/completion.bash.inc' ]; then source '/home/zhs/workspace/gCloud/sdk/google-cloud-sdk/completion.bash.inc'; fi
+export PATH=$HOME/usr/bin:$PATH
+source $HOME/.workplacerc
