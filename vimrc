@@ -88,7 +88,7 @@ let wiki.syntax = 'markdown'
 let wiki.ext = '.md'
 let g:vimwiki_list = [wiki]
 "let wiki.html_header = '~/Dropbox/vimwiki/html/header.tpl'
-let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'c': 'c', 'sh': 'sh'}
+let wiki.nested_syntaxes = {'py': 'python', 'c++': 'cpp', 'c': 'c', 'sh': 'sh', 'go': 'go'}
 " 不使能驼峰英文
 let g:vimwiki_camel_case = 0
 " 标记为完成的 checklist 项目会有特别颜色
