@@ -21,7 +21,7 @@
 	st = status -s
 	l = log --oneline
 	co = checkout
-	la = log --oneline --decorate --graph --all
+	la = log --oneline --decorate --graph --all --color=always
 	br = branch -vv
 	diff = diff --check
 	extdiff = difftool
