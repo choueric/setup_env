@@ -1,28 +1,52 @@
+set nocompatible
+
 """"""""""""""""""""""""""""""""""""""""""""""
-" vundle
-"git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" plug.vim
 """"""""""""""""""""""""""""""""""""""""""""""
-set nocompatible              " be iMproved, required
-filetype off                  " required
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'fatih/vim-go'
-Plugin 'Lokaltog/vim-powerline'
-Plugin 'vimwiki/vimwiki'
-Plugin 'lrvick/Conque-Shell'
-Plugin 'AnsiEsc.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'majutsushi/tagbar'
-Plugin 'tpope/vim-surround'
-Plugin 'geoffharcourt/vim-matchit'
-Plugin 'Konfekt/vim-alias'
-Plugin 'airblade/vim-gitgutter'
-call vundle#end()            " required
-filetype plugin indent on    " required
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'fatih/vim-go'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vimwiki/vimwiki'
+Plug 'lrvick/Conque-Shell'
+Plug 'kien/ctrlp.vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-surround'
+Plug 'geoffharcourt/vim-matchit'
+Plug 'Konfekt/vim-alias'
+Plug 'mhinz/vim-signify'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'Shougo/echodoc.vim'
+call plug#end()
+
+""""""""""""""""""""""""""""""""""""""""""""""
+" echodoc
+""""""""""""""""""""""""""""""""""""""""""""""
+set noshowmode
+let g:echodoc_enable_at_startup = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""
+" asyncrun
+""""""""""""""""""""""""""""""""""""""""""""""
+let g:asyncrun_rootmarks = ['.svn', '.git', '.root', '_darcs', 'build.xml']
+" open quickfix window automatically, and height set to 6
+let g:asyncrun_open = 6
+
+" ring bell when job is done
+let g:asyncrun_bell = 1
+
+nnoremap <silent> <F5> :AsyncRun -cwd=<root>/build cmake .. <cr>
+nnoremap <silent> <F6> :AsyncRun -cwd=<root>/build make <cr>
+" use <F8> to toggle Quickfix
+nnoremap <silent> <F8> :call asyncrun#quickfix_toggle(6)<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " ctags
@@ -34,14 +58,16 @@ set tags=./.tags;,.tags
 """"""""""""""""""""""""""""""""""""""""""""""
 let g:go_fmt_command = "goimports"
 
-
 """"""""""""""""""""""""""""""""""""""""""""""
 " YouCompleteMe
 """"""""""""""""""""""""""""""""""""""""""""""
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_enable_diagnostic_highlighting = 0
 let g:ycm_enable_diagnostic_signs = 0
-
+let g:ycm_semantic_triggers =  {
+            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+            \ 'cs,lua,javascript': ['re!\w{2}'],
+            \ }
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " TagBar
@@ -65,21 +91,32 @@ let g:tagbar_type_vimwiki = {
 let g:tagbar_left = 1
 let g:tagbar_width = 30
 autocmd FileType markdown :TagbarOpen
-
+map <F2> :TagbarToggle<CR>
+imap <F2> <esc>:TagbarToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " vim-alias
 """"""""""""""""""""""""""""""""""""""""""""""
 autocmd VimEnter * nested :Alias t tabnew
 
+""""""""""""""""""""""""""""""""""""""""""""""
+" gutentags
+""""""""""""""""""""""""""""""""""""""""""""""
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+let g:gutentags_ctags_tagfile = '.tags'
+let s:vim_tags = expand('~/tmp/tags')
+let g:gutentags_cache_dir = s:vim_tags
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+if !isdirectory(s:vim_tags)
+    silent! call mkdir(s:vim_tags, 'p')
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""
-" status bar & Powerline
+" status bar & vim-airline
 """"""""""""""""""""""""""""""""""""""""""""""
 set laststatus=2
-let g:Powerline_symbols = 'unicode'
-let g:Powerline_colorscheme = 'solarized256'
-
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " vimwiki 
@@ -104,7 +141,6 @@ let g:vimwik_folding = 0
 " 在计算字符串长度时特别考虑中文字符
 let g:vimwik_CJK_length = 1
 
-
 """"""""""""""""""""""""""""""""""""""""""""""
 " formatoptions
 " see more `:help fo-table` and `:help fo`
@@ -112,7 +148,6 @@ let g:vimwik_CJK_length = 1
 """"""""""""""""""""""""""""""""""""""""""""""
 set fo+=mM  " for multi_byte charactors such as Chinese
 set fo+=j   " when join comments, delete the // charactors
-
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " color, hightlight, things about appearance
@@ -136,6 +171,8 @@ set shiftwidth=4
 set colorcolumn=80
 set modeline
 set modelines=5
+
+highlight Pmenu ctermfg=Black ctermbg=DarkGrey
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " tabline
@@ -196,7 +233,6 @@ highlight Search ctermfg=White ctermbg=Blue
 highlight Search guifg=White guibg=Orange
 set hls
 
-
 """"""""""""""""""""""""""""""""""""""""""""""
 " indent
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -204,12 +240,10 @@ filetype indent on
 set autoindent
 filetype plugin indent on
 
-
 """"""""""""""""""""""""""""""""""""""""""""""
 " auto complete
 """"""""""""""""""""""""""""""""""""""""""""""
 set completeopt=longest,menu
-
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " clipboard
@@ -220,14 +254,12 @@ else
 	set clipboard=unnamed
 endif
 
-
 """"""""""""""""""""""""""""""""""""""""""""""
 " misc
 """"""""""""""""""""""""""""""""""""""""""""""
 " enable backspace (0, 1 disable)
 set backspace=2
 set directory=~/tmp//,/var/tmp//,/tmp//,.
-
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " encoding
@@ -236,7 +268,6 @@ set directory=~/tmp//,/var/tmp//,/tmp//,.
 set fenc=utf-8
 set fencs=utf-8,gb2312,ucs-bom,gb18030,gbk,cp936,big5
 set encoding=utf8
-
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " for gui "
@@ -251,10 +282,6 @@ set guifont=Monospace\ 12
 """"""""""""""""""""""""""""""""""""""""""""""
 "<F1> is help
 
-" tagbar
-map <F2> :TagbarToggle<CR>
-imap <F2> <esc>:TagbarToggle<CR>
-
 " copy
 map <F3> "+y
 imap <F3> <esc>"+y
@@ -262,30 +289,23 @@ imap <F3> <esc>"+y
 map <F4> "+p
 imap <F4> <esc>"+p
 
-map <F5> :cn<CR>
-imap <F5> <esc>:cn<CR>
-map <F6> :cp<CR>
-imap <F6> <esc>:cp<CR>
-
 " 快捷键入当前时间
 map <F7> a<C-R>=strftime("%Y-%m-%d %T")<CR><esc>
 imap <F7> <C-R>=strftime("%Y-%m-%d %T")<CR><esc>
-" 该键在一行的最后空出四个空白然后添加"//"，并保持输入状态，作用是可以添加注释方便
-map <F8> A<space><space><space><space>//
-imap <F8> <esc>A<space><space><space><space>//
 
-" 定义在一行的前面添加"//"符号，即在程序编写中使该行成为注释
+" add '//' in the head of line to comment it
 map <F9> I// <esc>
 imap <F9> <esc>I// <esc>
-
-" remove comment.
+" revert <F9>
 map <F10> ^xxx
 imap <F10> <esc>^xxx
 
+" make a long line into several lines to become a paragraph.
 map <F12> Vgq
 imap <F12> <esc>Vgq
 
-map _ *N
+" highligh the word under cursor
+map * *N
 
 " move window
 map <C-up> <C-W>+
@@ -297,8 +317,6 @@ map <C-right> <C-W>>
 map <C-l> <esc>gt
 map <C-h> <esc>gT
 
-:command! Make silent make | unsilent redraw! | cwindow
-
 """"""""""""""""""""""""""""""""""""""""""""""
 " fzf
 " install:
@@ -309,7 +327,7 @@ map <C-h> <esc>gT
 """"""""""""""""""""""""""""""""""""""""""""""
 set rtp+=~/.fzf
 
-" Select buffer
+" Select buffer: <Leader><Enter>
 function! s:buflist()
   redir => ls
   silent ls
@@ -328,7 +346,7 @@ nnoremap <silent> <Leader><Enter> :call fzf#run({
 \   'down':    len(<sid>buflist()) + 2
 \ })<CR>
 
-" Jump to Tags
+" Jump to Tags: <Leader>t
 function! s:tags_sink(line)
   let parts = split(a:line, '\t\zs')
   let excmd = matchstr(parts[2:], '^.*\ze;"\t')
@@ -355,3 +373,4 @@ function! s:tags()
 endfunction
 
 command! Tags call s:tags()
+nnoremap <silent> <Leader>t :Tags<CR>
