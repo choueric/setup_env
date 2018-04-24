@@ -9,3 +9,4 @@
 
 --recurse=yes
 --exclude=.git
+-f .tags

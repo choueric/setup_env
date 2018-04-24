@@ -25,6 +25,11 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 """"""""""""""""""""""""""""""""""""""""""""""
+" ctags
+""""""""""""""""""""""""""""""""""""""""""""""
+set tags=./.tags;,.tags
+
+""""""""""""""""""""""""""""""""""""""""""""""
 " vim-go
 """"""""""""""""""""""""""""""""""""""""""""""
 let g:go_fmt_command = "goimports"
@@ -238,7 +243,8 @@ set encoding=utf8
 " use :set guifont=* to show the font dialog "
 """"""""""""""""""""""""""""""""""""""""""""""
 set guifont=Monospace\ 12
-
+"autocmd InsertLeave,WinEnter * set cursorline
+"autocmd InsertEnter,WinLeave * set nocursorline
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " key binding
