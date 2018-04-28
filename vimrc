@@ -15,7 +15,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vimwiki/vimwiki'
 Plug 'lrvick/Conque-Shell'
-Plug 'kien/ctrlp.vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
@@ -327,8 +326,8 @@ map <C-h> <esc>gT
 "   cd ~/.fzf && git pull && ./install
 """"""""""""""""""""""""""""""""""""""""""""""
 set rtp+=~/.fzf
-" Select file: <Leader>f
-nnoremap <silent> <Leader>f :FZF<CR>
+" Select file: ctrl+p
+nnoremap <silent> <C-p> :FZF<CR>
 
 " Select buffer: <Leader><Enter>
 function! s:buflist()
