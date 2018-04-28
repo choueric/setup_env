@@ -109,7 +109,8 @@ if [ -x /usr/bin/dircolors ]; then
     alias ll='ls -l --color=always'
     alias la='ls -a --color=always'
     alias lt='ls -t --color=always | head'
-    alias rm='rm -i '
+	# sudo apt install trash-cli
+    alias rm='trash -i '
     alias mv='mv -i'
 
     alias grep='grep --color=auto --exclude-dir=.git'
