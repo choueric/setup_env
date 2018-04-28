@@ -105,16 +105,12 @@ esac
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     eval "`dircolors -b`"
-    alias ls='ls -F --color=auto'
-    alias ll='ls -l'
-    alias la='ls -a'
-    alias lls='ls -lh --color=auto|less'
+    alias ls='ls -F --color=always'
+    alias ll='ls -l --color=always'
+    alias la='ls -a --color=always'
+    alias lt='ls -t --color=always | head'
     alias rm='rm -i '
-    alias m='mocp'
     alias mv='mv -i'
-    #alias man='vman'
-    #alias dir='ls --color=auto --format=vertical'
-    #alias vdir='ls --color=auto --format=long'
 
     alias grep='grep --color=auto --exclude-dir=.git'
     alias fgrep='fgrep --color=auto --exclude-dir=.git'
