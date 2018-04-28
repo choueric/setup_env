@@ -64,10 +64,6 @@ let g:go_fmt_command = "goimports"
 let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_enable_diagnostic_highlighting = 0
 let g:ycm_enable_diagnostic_signs = 0
-let g:ycm_semantic_triggers =  {
-            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-            \ 'cs,lua,javascript': ['re!\w{2}'],
-            \ }
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " TagBar
@@ -326,6 +322,8 @@ map <C-h> <esc>gT
 "   cd ~/.fzf && git pull && ./install
 """"""""""""""""""""""""""""""""""""""""""""""
 set rtp+=~/.fzf
+" Select file: <Leader>f
+nnoremap <silent> <Leader>f :FZF<CR>
 
 " Select buffer: <Leader><Enter>
 function! s:buflist()

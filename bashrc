@@ -168,3 +168,5 @@ esac
 
 export PATH=$HOME/usr/bin:$PATH
 source $HOME/.workplacerc
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
