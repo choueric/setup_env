@@ -34,6 +34,11 @@ set noshowmode
 let g:echodoc_enable_at_startup = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""
+" signify
+""""""""""""""""""""""""""""""""""""""""""""""
+let g:signify_realtime = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""
 " asyncrun
 """"""""""""""""""""""""""""""""""""""""""""""
 let g:asyncrun_rootmarks = ['.svn', '.git', '.root', '_darcs', 'build.xml']
