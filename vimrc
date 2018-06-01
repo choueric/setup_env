@@ -24,6 +24,7 @@ Plug 'mhinz/vim-signify'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'Shougo/echodoc.vim'
+Plug 'dart-lang/dart-vim-plugin'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""
