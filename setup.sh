@@ -27,3 +27,13 @@ then
 	echo "#### copy $2 ####"
 	copy_file $2
 fi
+
+# setup i3 configuration
+mv ~/.config/i3 ~/.config/i3_backup
+ln -sf $PWD/i3 ~/.config/i3 
+
+sudo pacman -S feh arandr ttf-font-awesome lxappearance thunar rofi compton i3blocks
+
+
+# https://github.com/supermarin/YosemiteSanFranciscoFont
+# move ttf fonts to ~/.fonts
