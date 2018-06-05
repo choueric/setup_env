@@ -36,4 +36,4 @@ sudo pacman -S feh arandr ttf-font-awesome lxappearance thunar rofi compton i3bl
 
 
 # https://github.com/supermarin/YosemiteSanFranciscoFont
-# move ttf fonts to ~/.fonts
+# move ttf fonts to ~/.local/share/fonts

@@ -1,0 +1,4 @@
+!! xrdb ~/.Xresources to load configurations
+URxvt.font: xft:System San Francisco Display:size=10
+URxvt.letterSpace: -4
+URxvt.scrollBar: false
