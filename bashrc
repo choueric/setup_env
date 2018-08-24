@@ -149,7 +149,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # golang
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/usr/local/go/bin:$HOME/usr/go/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export KBDASHBOARD=$GOPATH/src/github.com/choueric/kbdashboard
