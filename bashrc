@@ -16,7 +16,7 @@ shopt -s histappend
 # ---------------------------- zhs setup --------------------------------------------
 # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 set -o vi
-PATH=$PATH:/sbin:/usr/sbin:$HOME/bin
+PATH=$PATH:/sbin:/usr/sbin
 
 # Use VIm as man pager
 vman () {
@@ -164,7 +164,10 @@ case "$TERM" in
 esac
 
 export PATH=$HOME/usr/bin:$PATH
-source $HOME/.workplacerc
+
+if [ -e $HOME/.xmodmaprc ]; then
+	xmodmap $HOME/.xmodmaprc
+fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
