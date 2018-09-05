@@ -1,0 +1,12 @@
+[Unit]
+Description=Shadowsocks Client Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/home/zhs/usr/bin/ss-local -c /home/zhs/usr/bin/config.conf
+
+[Install]
+WantedBy=multi-user.target
+
