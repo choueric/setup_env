@@ -131,6 +131,7 @@ alias dmesg='dmesg --human'
 alias gotop='cd `git rev-parse --show-toplevel`'
 alias hexdump='hexdump -C'
 alias gcc='gcc -fdiagnostics-color=auto'
+alias cat='bat'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
