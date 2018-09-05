@@ -296,7 +296,7 @@ set encoding=utf8
 " for gui "
 " use :set guifont=* to show the font dialog "
 """"""""""""""""""""""""""""""""""""""""""""""
-set guifont=Monospace\ 12
+set guifont=Ubuntu\ Mono\ 16
 "autocmd InsertLeave,WinEnter * set cursorline
 "autocmd InsertEnter,WinLeave * set nocursorline
 
