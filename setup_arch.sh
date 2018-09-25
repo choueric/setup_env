@@ -12,7 +12,6 @@ sudo pacman -S i3 feh arandr ttf-font-awesome lxappearance thunar rofi compton \
 
 git clone https://github.com/supermarin/YosemiteSanFranciscoFont
 mkdir -p $FONT_DIR
-mkdir -p workspace/builds
 mv YosemiteSanFranciscoFont/*.ttf $FONT_DIR
 
 sudo cp shadowsocks.service /etc/systemd/system/shadowsocks.service
