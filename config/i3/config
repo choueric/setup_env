@@ -14,7 +14,7 @@ set $inactive-bg-color #2f343f
 set $text-color #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color #e53935
-set $term terminator
+set $term gnome-terminal
 
 set $mod Mod4
 
@@ -55,10 +55,10 @@ bindsym $mod+d exec rofi -show run \
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+#bindsym $mod+l focus right # Win+L will lock Windows
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -67,10 +67,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -79,7 +79,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+semicolon split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -203,7 +203,7 @@ bar {
 		background $bg-color
 		separator #757575
 		#			border			background		text
-		focused_workspace 	$bg-color 		$bg-color		$text-color
+		focused_workspace 	$bg-color 		#5a3d3f		$text-color
 		inactive_workspace 	$inactive-bg-color 	$inactive-bg-color	$inactive-text-color
 		urgent_workspace 	$urgent-bg-color 	$urgent-bg-color 	$text-color
 	}
