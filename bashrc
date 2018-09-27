@@ -165,6 +165,9 @@ case "$TERM" in
 esac
 
 export PATH=$HOME/usr/bin:$PATH
+export PATH=$HOME/workspace/flutter/bin:$PATH
+export PATH=$HOME/android-studio/bin:$PATH
+export PATH=$HOME/workspace/flutter/bin/cache/dart-sdk/bin:$PATH
 
 if [ -e $HOME/.xmodmaprc ]; then
 	xmodmap $HOME/.xmodmaprc
