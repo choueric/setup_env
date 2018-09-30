@@ -29,6 +29,18 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""
+" dart-vim-plugin
+""""""""""""""""""""""""""""""""""""""""""""""
+" Enable HTML syntax highlighting inside Dart strings
+let dart_html_in_string=v:true
+
+" Enable Dart style guide syntax (like 2-space indentation)
+let dart_style_guide = 2
+
+" Enable DartFmt execution on buffer save
+let dart_format_on_save = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""
 " vim-cpp-enhanced-highlight
 """"""""""""""""""""""""""""""""""""""""""""""
 " Highlighting of class scope is disabled by default. To enable set
