@@ -441,8 +441,8 @@ function! ClearAllHi()
 endfunction
 
 nnoremap <silent> <leader>0 :call ClearAllHi()<cr>
-nnoremap <silent> <leader>1 :call HiInterestingWord(1)<cr>
-nnoremap <silent> <leader>2 :call HiInterestingWord(2)<cr>
+nnoremap <silent> <leader>1 :call HiInterestingWord(2)<cr>
+nnoremap <silent> <leader>2 :call HiInterestingWord(1)<cr>
 nnoremap <silent> <leader>3 :call HiInterestingWord(3)<cr>
 nnoremap <silent> <leader>4 :call HiInterestingWord(4)<cr>
 nnoremap <silent> <leader>5 :call HiInterestingWord(5)<cr>
