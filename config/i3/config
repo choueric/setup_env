@@ -89,8 +89,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-#bindsym $mod+w layout tabbed
-bindsym $mod+w exec rofi -show window
+bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -100,7 +99,12 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
+bindsym $mod+a exec rofi -show window \
+	-lines 10 -eh 2 -width 40 -padding 2 -opacity "85" \
+	-bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" \
+	-hlbg "$bg-color" -hlfg "#9575cd" \
+	-font "System San Francisco Display 12"
 
 # focus the child container
 #bindsym $mod+d focus child
