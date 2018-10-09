@@ -109,8 +109,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias ll='ls -l --color=always'
     alias la='ls -a --color=always'
     alias lt='ls -t --color=always | head'
-	# sudo apt install trash-cli
-    alias rm='trash -i '
     alias mv='mv -i'
 
     alias grep='grep --color=auto --exclude-dir=.git'
@@ -131,7 +129,6 @@ alias dmesg='dmesg --human'
 alias gotop='cd `git rev-parse --show-toplevel`'
 alias hexdump='hexdump -C'
 alias gcc='gcc -fdiagnostics-color=auto'
-alias cat='bat'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
