@@ -1,0 +1,23 @@
+# Frontends
+[frontends]
+  [frontends.blog]
+  backend = "blog"
+    [frontends.blog.routes.test_1]
+    rule = "Host:ericnode.info"
+
+  [frontends.demo]
+  backend = "demo"
+    [frontends.demo.routes.test_1]
+    rule = "Host:ericnode.info;Path:/demo"
+
+# Backends
+[backends]
+  [backends.blog]
+    [backends.blog.servers.server1]
+    url = "http://127.0.0.1:1313"
+    weight = 10
+
+  [backends.demo]
+    [backends.demo.servers.server1]
+    url = "http://127.0.0.1:8066"
+    weight = 10
