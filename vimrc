@@ -10,35 +10,20 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'fatih/vim-go'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vimwiki/vimwiki'
 Plug 'lrvick/Conque-Shell'
-Plug 'Valloric/YouCompleteMe'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
 Plug 'geoffharcourt/vim-matchit'
 Plug 'Konfekt/vim-alias'
 Plug 'mhinz/vim-signify'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'Shougo/echodoc.vim'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
-
-""""""""""""""""""""""""""""""""""""""""""""""
-" dart-vim-plugin
-""""""""""""""""""""""""""""""""""""""""""""""
-" Enable HTML syntax highlighting inside Dart strings
-let dart_html_in_string=v:true
-
-" Enable Dart style guide syntax (like 2-space indentation)
-let dart_style_guide = 2
-
-" Enable DartFmt execution on buffer save
-let dart_format_on_save = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " vim-cpp-enhanced-highlight
@@ -91,18 +76,6 @@ nnoremap <silent> <F8> :call asyncrun#quickfix_toggle(6)<cr>
 set tags=./.tags;,.tags
 
 """"""""""""""""""""""""""""""""""""""""""""""
-" vim-go
-""""""""""""""""""""""""""""""""""""""""""""""
-let g:go_fmt_command = "goimports"
-
-""""""""""""""""""""""""""""""""""""""""""""""
-" YouCompleteMe
-""""""""""""""""""""""""""""""""""""""""""""""
-let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_enable_diagnostic_highlighting = 0
-let g:ycm_enable_diagnostic_signs = 0
-
-""""""""""""""""""""""""""""""""""""""""""""""
 " TagBar
 """"""""""""""""""""""""""""""""""""""""""""""
 " support markdown
@@ -131,22 +104,6 @@ imap <F2> <esc>:TagbarToggle<CR>
 " vim-alias
 """"""""""""""""""""""""""""""""""""""""""""""
 autocmd VimEnter * nested :Alias t tabnew
-
-""""""""""""""""""""""""""""""""""""""""""""""
-" gutentags
-""""""""""""""""""""""""""""""""""""""""""""""
-"let g:gutentags_trace=1
-let g:gutentags_ctags_exclude = ['.toolchain']
-let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
-let g:gutentags_ctags_tagfile = '.tags'
-let s:vim_tags = expand('~/tmp/tags')
-let g:gutentags_cache_dir = s:vim_tags
-let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
-let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
-let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
-if !isdirectory(s:vim_tags)
-    silent! call mkdir(s:vim_tags, 'p')
-endif
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " status bar & vim-airline
