@@ -38,3 +38,5 @@
 # 	chainreplyto = false
 # 	smtppass = xxx
 # 	suppresscc = self
+[diff]
+	tool = meld
