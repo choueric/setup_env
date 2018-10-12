@@ -1,22 +1,23 @@
 SA=`pwd`/sa.sh
 
-.PHONY: serve install_theme test alter help
 .DEFAULT_GOAL := help
 
-# Server side
-install: ## install server program
-	@$(SA) download && sudo $(SA) install 
+download: ## download traefik program
+	@$(SA) download
 
-start: ## run server
+install: ## install traefik serivce
+	@sudo $(SA) install
+
+start: ## run traefik
 	@sudo $(SA) restart
 
-status: ## show server status
+status: ## show traefik serivce status
 	@$(SA) status
 
-stop: ## stop server
+stop: ## stop traefik
 	@sudo $(SA) stop
 
-uninstall: ## uninstall server
+uninstall: ## uninstall traefik serivce
 	@sudo $(SA) uninstall
 
 log: ## show service log
