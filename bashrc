@@ -113,9 +113,10 @@ if [ -x /usr/bin/dircolors ]; then
     alias rm='trash -i '
     alias mv='mv -i'
 
-    alias grep='grep --color=auto --exclude-dir=.git'
+    alias grep='grep --color=auto --exclude-dir=.git -I'
     alias fgrep='fgrep --color=auto --exclude-dir=.git'
     alias egrep='egrep --color=auto --exclude-dir=.git'
+    alias ag="ag --color-match '1;31'"
 
 	alias less='less -r'
 	alias diff='colordiff'
@@ -174,6 +175,8 @@ if [ -e $HOME/.xmodmaprc ]; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+source $HOME/.workplacerc
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
