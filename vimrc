@@ -26,7 +26,17 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'Shougo/echodoc.vim'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'cespare/vim-toml'
+Plug 'mileszs/ack.vim'
 call plug#end()
+
+""""""""""""""""""""""""""""""""""""""""""""""
+" ack
+""""""""""""""""""""""""""""""""""""""""""""""
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+nnoremap <silent> ? :Ack!<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " dart-vim-plugin
