@@ -14,6 +14,7 @@ set $inactive-bg-color #2f343f
 set $text-color #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color #e53935
+set $focused-bg-color #75507B
 set $term gnome-terminal
 
 set $mod Mod4
@@ -209,8 +210,8 @@ bar {
 	colors {
 		background $bg-color
 		separator #757575
-		#			border			background		text
-		focused_workspace 	$bg-color 		#5a3d3f		$text-color
+		#					border				background			text
+		focused_workspace 	$bg-color			$focused-bg-color	$text-color
 		inactive_workspace 	$inactive-bg-color 	$inactive-bg-color	$inactive-text-color
 		urgent_workspace 	$urgent-bg-color 	$urgent-bg-color 	$text-color
 	}
