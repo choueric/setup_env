@@ -116,7 +116,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto --exclude-dir=.git -I'
     alias fgrep='fgrep --color=auto --exclude-dir=.git'
     alias egrep='egrep --color=auto --exclude-dir=.git'
-    alias ag="ag --color-match '1;31'"
+    alias ag="ag --color-match '1;31' --nobreak"
 
 	alias less='less -r'
 	alias diff='colordiff'
