@@ -28,6 +28,7 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'cespare/vim-toml'
 Plug 'mileszs/ack.vim'
+Plug 'mkitt/tabline.vim'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -222,7 +223,9 @@ highlight Pmenu ctermfg=Black ctermbg=DarkGrey
 """"""""""""""""""""""""""""""""""""""""""""""
 " tabline
 """"""""""""""""""""""""""""""""""""""""""""""
-hi TabLineSel ctermfg=Red ctermbg=Yellow
+hi TabLine      ctermfg=Black  ctermbg=Gray      cterm=NONE
+hi TabLineFill  ctermfg=Black  ctermbg=Gray      cterm=NONE
+hi TabLineSel   ctermfg=Green  ctermbg=DarkBlue  cterm=NONE
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " search
