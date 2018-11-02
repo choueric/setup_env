@@ -161,7 +161,8 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""
 " status bar & vim-airline
 """"""""""""""""""""""""""""""""""""""""""""""
-set laststatus=2
+let g:airline_extensions = []
+let g:airline_section_z = '%3p%%/%L (%4l,%3v)'
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " vimwiki 
