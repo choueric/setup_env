@@ -169,6 +169,7 @@ export PATH=$HOME/usr/bin:$PATH
 export PATH=$HOME/workspace/flutter/bin:$PATH
 export PATH=$HOME/android-studio/bin:$PATH
 export PATH=$HOME/workspace/flutter/bin/cache/dart-sdk/bin:$PATH
+export EDITOR=vim
 
 if [ -e $HOME/.xmodmaprc ]; then
 	xmodmap $HOME/.xmodmaprc
