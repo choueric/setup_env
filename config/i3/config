@@ -16,6 +16,7 @@ set $inactive-text-color #676E7D
 set $urgent-bg-color #e53935
 set $focused-bg-color #75507B
 set $term gnome-terminal
+set $opacity "100"
 
 set $mod Mod4
 
@@ -46,7 +47,7 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
 bindsym $mod+d exec rofi -show run \
-	-lines 5 -eh 2 -width 40 -padding 2 -opacity "85" \
+	-lines 5 -eh 2 -width 40 -padding 2 -opacity $opacity \
 	-bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" \
 	-hlbg "$bg-color" -hlfg "#9575cd" \
 	-font "System San Francisco Display 18"
@@ -101,8 +102,8 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 # bindsym $mod+a focus parent
-bindsym $mod+a exec rofi -show window \
-	-lines 10 -eh 2 -width 40 -padding 2 -opacity "85" \
+bindsym $mod+o exec rofi -show window \
+	-lines 10 -eh 2 -width 40 -padding 2 -opacity $opacity \
 	-bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" \
 	-hlbg "$bg-color" -hlfg "#9575cd" \
 	-font "System San Francisco Display 12"
