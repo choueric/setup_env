@@ -153,12 +153,12 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # run xprop
-assign [class="Firefox"] $ws2
-for_window [class="Firefox"] focus
-assign [class="Google-chrome"] $ws3
-for_window [class="Google-chrome"] focus
-assign [class="Nautilus"] $ws4
-for_window [class="Nautilus"] focus
+#assign [class="Firefox"] $ws2
+#for_window [class="Firefox"] focus
+#assign [class="Google-chrome"] $ws3
+#for_window [class="Google-chrome"] focus
+#assign [class="Nautilus"] $ws4
+#for_window [class="Nautilus"] focus
 #assign [class="Audacious"] $ws10
 
 # reload the configuration file
