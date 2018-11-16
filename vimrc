@@ -28,7 +28,13 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'cespare/vim-toml'
 Plug 'mileszs/ack.vim'
+Plug 'vivien/vim-linux-coding-style'
 call plug#end()
+
+""""""""""""""""""""""""""""""""""""""""""""""
+" vim-linux-coding-style
+""""""""""""""""""""""""""""""""""""""""""""""
+let g:linuxsty_patterns = [ "/fw-kernel", "/g7apc-linux-2.6-imx" ]
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " ack
