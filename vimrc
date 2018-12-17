@@ -29,7 +29,13 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'cespare/vim-toml'
 Plug 'mileszs/ack.vim'
 Plug 'vivien/vim-linux-coding-style'
+Plug 'xavierchow/vim-sequence-diagram'
 call plug#end()
+
+""""""""""""""""""""""""""""""""""""""""""""""
+" vim-sequence-diagram
+""""""""""""""""""""""""""""""""""""""""""""""
+nmap <unique> <leader>s <Plug>GenerateDiagram
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " vim-linux-coding-style
