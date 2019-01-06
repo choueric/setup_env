@@ -18,9 +18,9 @@
 [alias]
 	st = status -s
 	co = checkout
-	ll = log -n 20 --pretty=format:'%C(yellow)%h%Creset%C(bold yellow)%d%Creset %s %C(bold blue)<%an>%Creset %Cgreen(%cr)' --abbrev-commit --date=relative
+	ll = log --pretty=format:'%C(yellow)%h%Creset%C(bold yellow)%d%Creset %s %C(bold blue)<%an>%Creset %Cgreen(%cr)' --abbrev-commit --date=relative
+	le = log --pretty=format:'%C(yellow)%h%Creset %s %C(bold blue)<%an>%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	la = log --oneline --decorate --graph --all --color=always
-	le = log -n 20 --pretty=format:'%C(yellow)%h%Creset %s %C(bold blue)<%an>%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	br = branch -vv
 	diff = diff --check
 	extdiff = difftool
