@@ -18,7 +18,7 @@ set $focused-bg-color #75507B
 set $term gnome-terminal
 set $opacity "100"
 
-set $mod Mod4
+set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -236,7 +236,8 @@ exec_always dropbox start
 exec_always feh --bg-scale ~/Pictures/wallpaper.png
 exec_always compton
 exec_always fcitx
-exec_always volumeicon
+exec volumeicon
+exec slack
 exec --no-startup-id /usr/bin/blueman-applet # Bluetooth Manager
 
 #exec firefox
