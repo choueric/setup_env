@@ -32,7 +32,23 @@ Plug 'vivien/vim-linux-coding-style'
 Plug 'xavierchow/vim-sequence-diagram'
 Plug 'artoj/qmake-syntax-vim'
 Plug 'kergoth/vim-bitbake'
+Plug 'scrooloose/nerdcommenter'
 call plug#end()
+
+""""""""""""""""""""""""""""""""""""""""""""""
+" nerdcommenter
+""""""""""""""""""""""""""""""""""""""""""""""
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1
+map <F9> <Leader>ci
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " vim-sequence-diagram
@@ -339,11 +355,11 @@ map <F7> a<C-R>=strftime("%Y-%m-%d %T")<CR><esc>
 imap <F7> <C-R>=strftime("%Y-%m-%d %T")<CR><esc>
 
 " add '//' in the head of line to comment it
-map <F9> I// <esc>
-imap <F9> <esc>I// <esc>
-" revert <F9>
-map <F10> ^xxx
-imap <F10> <esc>^xxx
+"map <F9> I// <esc>
+"imap <F9> <esc>I// <esc>
+"" revert <F9>
+"map <F10> ^xxx
+"imap <F10> <esc>^xxx
 
 " make a long line into several lines to become a paragraph.
 map <F12> Vgq
