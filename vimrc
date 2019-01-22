@@ -406,34 +406,18 @@ nnoremap <silent> <Leader><Enter> :call fzf#run({
 \   'down':    len(<sid>buflist()) + 2
 \ })<CR>
 
-" Jump to Tags: <Leader>t
-function! s:tags_sink(line)
-  let parts = split(a:line, '\t\zs')
-  let excmd = matchstr(parts[2:], '^.*\ze;"\t')
-  execute 'silent e' parts[1][:-2]
-  let [magic, &magic] = [&magic, 0]
-  execute excmd
-  let &magic = magic
+" Jump to Tabs: <Leader>t
+function! s:jumpToTab(line)
+    let pair = split(a:line, ' ')
+    let cmd = pair[0].'gt'
+    execute 'normal' cmd
 endfunction
 
-function! s:tags()
-  if empty(tagfiles())
-    echohl WarningMsg
-    echom 'Preparing tags'
-    echohl None
-    call system('ctags -R')
-  endif
-
-  call fzf#run({
-  \ 'source':  'cat '.join(map(tagfiles(), 'fnamemodify(v:val, ":S")')).
-  \            '| grep -v -a ^!',
-  \ 'options': '+m -d "\t" --with-nth 1,4.. -n 1 --tiebreak=index',
-  \ 'down':    '40%',
-  \ 'sink':    function('s:tags_sink')})
-endfunction
-
-command! Tags call s:tags()
-nnoremap <silent> <Leader>t :Tags<CR>
+nnoremap <silent> <Leader>t :call fzf#run({
+\   'source':  reverse(map(range(1, tabpagenr('$')), 'v:val." "." ".MyTabLabel(v:val)')),
+\   'sink':    function('<sid>jumpToTab'),
+\   'down':    len(<sid>buflist()) + 2
+\ })<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " Highlight word under cursor
