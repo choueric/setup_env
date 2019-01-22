@@ -416,7 +416,7 @@ endfunction
 nnoremap <silent> <Leader>t :call fzf#run({
 \   'source':  reverse(map(range(1, tabpagenr('$')), 'v:val." "." ".MyTabLabel(v:val)')),
 \   'sink':    function('<sid>jumpToTab'),
-\   'down':    len(<sid>buflist()) + 2
+\   'down':    tabpagenr('$') + 2
 \ })<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""
