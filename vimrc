@@ -30,6 +30,8 @@ Plug 'cespare/vim-toml'
 Plug 'mileszs/ack.vim'
 Plug 'vivien/vim-linux-coding-style'
 Plug 'xavierchow/vim-sequence-diagram'
+Plug 'artoj/qmake-syntax-vim'
+Plug 'kergoth/vim-bitbake'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""
