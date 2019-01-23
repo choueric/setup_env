@@ -33,6 +33,8 @@ Plug 'xavierchow/vim-sequence-diagram'
 Plug 'artoj/qmake-syntax-vim'
 Plug 'kergoth/vim-bitbake'
 Plug 'scrooloose/nerdcommenter'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -383,28 +385,10 @@ map <C-h> <esc>gT
 " upgrade:
 "   cd ~/.fzf && git pull && ./install
 """"""""""""""""""""""""""""""""""""""""""""""
-set rtp+=~/.fzf
 " Select file: ctrl+p
 nnoremap <silent> <C-p> :FZF<CR>
 
-" Select buffer: <Leader><Enter>
-function! s:buflist()
-  redir => ls
-  silent ls
-  redir END
-  return split(ls, '\n')
-endfunction
-
-function! s:bufopen(e)
-  execute 'buffer' matchstr(a:e, '^[ 0-9]*')
-endfunction
-
-nnoremap <silent> <Leader><Enter> :call fzf#run({
-\   'source':  reverse(<sid>buflist()),
-\   'sink':    function('<sid>bufopen'),
-\   'options': '+m',
-\   'down':    len(<sid>buflist()) + 2
-\ })<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
 
 " Jump to Tabs: <Leader>t
 function! s:jumpToTab(line)
@@ -413,7 +397,7 @@ function! s:jumpToTab(line)
     execute 'normal' cmd
 endfunction
 
-nnoremap <silent> <Leader>t :call fzf#run({
+nnoremap <silent> <Leader><Enter> :call fzf#run({
 \   'source':  reverse(map(range(1, tabpagenr('$')), 'v:val." "." ".MyTabLabel(v:val)')),
 \   'sink':    function('<sid>jumpToTab'),
 \   'down':    tabpagenr('$') + 2
