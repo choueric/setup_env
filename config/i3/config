@@ -236,9 +236,7 @@ bindsym XF86AudioLowerVolume exec pulseaudio-ctl down && pkill -RTMIN+10 i3block
 bindsym XF86AudioMute exec pulseaudio-ctl mute && pkill -RTMIN+10 i3blocks
 
 bindsym $mod+shift+x exec i3lock --color "$bg-color" -I 15 -d
-# bindsym $mod+shift+h exec systemctl hybrid-sleep
 exec /home/haishanz/.screenlayout/office.sh
-exec $term
 exec_always dropbox start
 exec_always feh --bg-scale ~/Pictures/wallpaper.png
 exec_always compton
@@ -246,9 +244,8 @@ exec_always fcitx
 exec volumeicon
 exec slack
 exec --no-startup-id /usr/bin/blueman-applet # Bluetooth Manager
-
-#exec firefox
-#exec_always xrandr --output VGA-1 --primary --mode 1280x720 --pos 0x0 --rotate normal
+exec --no-startup-id i3-msg 'workspace $ws3; exec $term'
+exec --no-startup-id i3-msg 'workspace $ws2; exec firefox'
 
 # hide window title bar
 for_window [class="^.*"] border pixel 0
