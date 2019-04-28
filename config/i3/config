@@ -244,9 +244,7 @@ exec_always compton
 exec_always fcitx
 exec --no-startup-id /usr/bin/blueman-applet # Bluetooth Manager
 exec amixer -c0 sset 'Headphone Mic Boost' 10dB
-
-#exec firefox
-#exec_always xrandr --output VGA-1 --primary --mode 1280x720 --pos 0x0 --rotate normal
+exec --no-startup-id i3-msg 'workspace $ws1; exec $term'
 
 # hide window title bar
 for_window [class="^.*"] border pixel 1
