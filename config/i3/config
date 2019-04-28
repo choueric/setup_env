@@ -18,6 +18,11 @@ set $focused-bg-color #75507B
 set $term gnome-terminal
 set $opacity "100"
 
+# -A option needs to setup the askpass application which could be specified in
+# /etc/sudo.conf by adding 'Path askpass /usr/bin/ssh-askpass'
+set $shutdown sudo -A shutdown -h now
+set $prompt ~/.config/i3/prompt
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -166,6 +171,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# shutdown computer
+bindsym $mod+Shift+s exec --no-startup-id $prompt "Shutdown computer?" "$shutdown"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
