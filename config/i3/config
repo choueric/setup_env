@@ -235,7 +235,7 @@ bindsym XF86AudioLowerVolume exec pulseaudio-ctl down && pkill -RTMIN+10 i3block
 bindsym XF86AudioMute exec pulseaudio-ctl mute && pkill -RTMIN+10 i3blocks
 
 bindsym $mod+shift+x exec i3lock --color "$bg-color"
-#bindsym $mod+shift+h exec systemctl hybrid-sleep
+bindsym $mod+shift+m exec systemctl suspend-then-hibernate
 exec volnoti
 exec $term
 exec dropbox
