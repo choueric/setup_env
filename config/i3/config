@@ -22,6 +22,7 @@ set $opacity "100"
 # /etc/sudo.conf by adding 'Path askpass /usr/bin/ssh-askpass'
 set $shutdown sudo -A shutdown -h now
 set $prompt ~/.config/i3/prompt
+set $displayselect ~/.config/i3/displayselect
 
 set $mod Mod4
 
@@ -236,6 +237,8 @@ bindsym XF86AudioMute exec pulseaudio-ctl mute && pkill -RTMIN+10 i3blocks
 
 bindsym $mod+shift+x exec i3lock --color "$bg-color"
 bindsym $mod+shift+m exec systemctl suspend-then-hibernate
+bindsym $mod+Shift+d exec --no-startup-id "$displayselect"
+
 exec volnoti
 exec $term
 exec dropbox

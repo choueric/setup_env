@@ -1,0 +1,11 @@
+#!/bin/sh
+
+ROOTDIR=$HOME/.screenlayout
+
+chosen=$(printf "single\\ntwo\\nmirror\\nmanual" | rofi -dmenu -i -p "Select display arangement:") &&
+case "$chosen" in
+	"single") $ROOTDIR/single.sh;;
+	"two") $ROOTDIR/two.sh;;
+    "mirror") $ROOTDIR/mirror.sh;;
+    "manual") arandr;;
+esac
