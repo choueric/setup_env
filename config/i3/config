@@ -15,8 +15,12 @@ set $bg-color #2f343f
 set $urgent-bg-color #e53935
 
 set $inactive-text-color #f3f4f5
-set $inactive-bg-color #75507B
+set $inactive-bg-color #4C7899
+set $border-color #f04415
 set $opacity "100"
+
+set $rofi-bg    #2f343f
+set $rofi-text  #f3f4f5
 
 set $term gnome-terminal
 
@@ -55,8 +59,8 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec dmenu_run
 bindsym $mod+d exec rofi -show run \
 	-lines 5 -eh 2 -width 40 -padding 2 -opacity $opacity \
-	-bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" \
-	-hlbg "$bg-color" -hlfg "#9575cd" \
+	-bw 0 -bc "$rofi-bg" -bg "$rofi-bg" -fg "$rofi-text" \
+	-hlbg "$rofi-bg" -hlfg "#9575cd" \
 	-font "System San Francisco Display 16"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -112,8 +116,8 @@ bindsym $mod+space focus mode_toggle
 # bindsym $mod+a focus parent
 bindsym $mod+o exec rofi -show window \
 	-lines 10 -eh 2 -width 40 -padding 2 -opacity $opacity \
-	-bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" \
-	-hlbg "$bg-color" -hlfg "#9575cd" \
+	-bw 0 -bc "$rofi-bg" -bg "$rofi-bg" -fg "$rofi-text" \
+	-hlbg "$rofi-bg" -hlfg "#9575cd" \
 	-font "System San Francisco Display 12"
 
 # focus the child container
@@ -206,9 +210,9 @@ bindsym $mod+r mode "resize"
 
 # window colors
 # 			            border			    background		    text		        	indicator
-client.focused		    $bg-color		    $focused-bg-color	$text-color		        #00ff00
-client.unfocused	    $inactive-bg-color	$inactive-bg-color	$inactive-text-color	#00ff00
-client.focused_inactive	$inactive-bg-color	$inactive-bg-color	$inactive-text-color	#00ff00
+client.focused		    $forcused-bg-color	$focused-bg-color	$text-color		        #00ff00
+client.unfocused	    $border-color   	$inactive-bg-color	$inactive-text-color	#00ff00
+client.focused_inactive	$border-color   	$inactive-bg-color	$inactive-text-color	#00ff00
 client.urgent		    $urgent-bg-color	$urgent-bg-color	$text-color		        #00ff00
 
 
@@ -223,7 +227,7 @@ bar {
 		separator #757575
 		#					border				background			text
 		focused_workspace 	$bg-color			$focused-bg-color	$text-color
-		inactive_workspace 	$inactive-bg-color 	$inactive-bg-color	$inactive-text-color
+		inactive_workspace 	$bg-color 	        $bg-color	        $inactive-text-color
 		urgent_workspace 	$urgent-bg-color 	$urgent-bg-color 	$text-color
 	}
 }
