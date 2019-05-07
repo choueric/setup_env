@@ -9,14 +9,16 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+set $text-color #333333
+set $focused-bg-color #8AEF8A
 set $bg-color #2f343f
-set $inactive-bg-color #2f343f
-set $text-color #f3f4f5
-set $inactive-text-color #676E7D
 set $urgent-bg-color #e53935
-set $focused-bg-color #75507B
-set $term gnome-terminal
+
+set $inactive-text-color #f3f4f5
+set $inactive-bg-color #75507B
 set $opacity "100"
+
+set $term gnome-terminal
 
 # -A option needs to setup the askpass application which could be specified in
 # /etc/sudo.conf by adding 'Path askpass /usr/bin/ssh-askpass'
