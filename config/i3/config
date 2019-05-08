@@ -28,6 +28,7 @@ set $term gnome-terminal
 # /etc/sudo.conf by adding 'Path askpass /usr/bin/ssh-askpass'
 set $shutdown sudo -A shutdown -h now
 set $prompt ~/.config/i3/prompt
+set $displayselect ~/.config/i3/displayselect
 
 set $mod Mod1
 
@@ -241,6 +242,7 @@ bindsym XF86AudioRaiseVolume exec pulseaudio-ctl up && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioLowerVolume exec pulseaudio-ctl down && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioMute exec pulseaudio-ctl mute && pkill -RTMIN+10 i3blocks
 
+bindsym $mod+Shift+d exec --no-startup-id "$displayselect"
 bindsym $mod+shift+x exec i3lock --color "$bg-color" -I 15 -d
 exec /home/haishanz/.screenlayout/office.sh
 exec_always dropbox start
