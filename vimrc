@@ -258,6 +258,7 @@ set shiftwidth=4
 set colorcolumn=80
 set modeline
 set modelines=5
+set nofoldenable
 
 highlight Pmenu ctermfg=Black ctermbg=DarkGrey
 
