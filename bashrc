@@ -108,7 +108,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias ls='ls -F --color=always'
     alias ll='ls -l --color=always'
     alias la='ls -a --color=always'
-    alias lt='ls -t --color=always | head'
+    alias lt='ls -tl --color=always | head'
 	# sudo apt install trash-cli
     alias rm='trash -i '
     alias mv='mv -i'
