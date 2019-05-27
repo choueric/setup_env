@@ -24,6 +24,7 @@
 	br = branch -vv
 	diff = diff --check
 	extdiff = difftool
+    su = submodule update --recursive
 [log]
 	follow = true
 # [http]
