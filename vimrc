@@ -35,7 +35,15 @@ Plug 'kergoth/vim-bitbake'
 Plug 'scrooloose/nerdcommenter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'chiel92/vim-autoformat'
 call plug#end()
+
+""""""""""""""""""""""""""""""""""""""""""""""
+" vim-autoformat
+""""""""""""""""""""""""""""""""""""""""""""""
+map <F10> :Autoformat<CR>
+imap <F10> <esc>:Autoformat<CR>
+let g:autoformat_verbosemode=0
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " nerdcommenter
