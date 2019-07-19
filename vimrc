@@ -22,8 +22,6 @@ Plug 'geoffharcourt/vim-matchit'
 Plug 'Konfekt/vim-alias'
 Plug 'mhinz/vim-signify'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'skywind3000/asyncrun.vim'
-Plug 'Shougo/echodoc.vim'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'cespare/vim-toml'
@@ -38,6 +36,12 @@ Plug 'junegunn/fzf.vim'
 Plug 'chiel92/vim-autoformat'
 Plug 'tpope/vim-fugitive'
 call plug#end()
+
+""""""""""""""""""""""""""""""""""""""""""""""
+" about performance
+""""""""""""""""""""""""""""""""""""""""""""""
+let g:matchparen_timeout = 20
+let g:matchparen_insert_timeout = 20
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " vim-autoformat
