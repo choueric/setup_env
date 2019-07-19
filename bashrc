@@ -101,6 +101,9 @@ xterm*|rxvt*)
     ;;
 esac
 
+# terminal window title
+PROMPT_COMMAND='echo -en "\033]0;$("pwd")\a"'
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
