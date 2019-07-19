@@ -11,8 +11,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'fatih/vim-go'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'lrvick/Conque-Shell'
 Plug 'Valloric/YouCompleteMe'
@@ -204,10 +203,15 @@ if !isdirectory(s:vim_tags)
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""
-" status bar & vim-airline
+" status bar & vim-airline & lightline
 """"""""""""""""""""""""""""""""""""""""""""""
-let g:airline_extensions = []
-let g:airline_section_z = '%3p%%/%L (%4l,%3v)'
+set laststatus=2
+let g:lightline = {
+      \ 'colorscheme': 'OldHope',
+      \ }
+"let g:airline_extensions = []
+"let g:airline_highlighting_cache = 1
+"let g:airline_section_z = '%3p%%/%L (%4l,%3v)'
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " vimwiki 
@@ -350,7 +354,7 @@ set encoding=utf8
 " for gui "
 " use :set guifont=* to show the font dialog "
 """"""""""""""""""""""""""""""""""""""""""""""
-set guifont=Ubuntu\ Mono\ 16
+set guifont=Ubuntu\ Mono\ 14
 "autocmd InsertLeave,WinEnter * set cursorline
 "autocmd InsertEnter,WinLeave * set nocursorline
 
