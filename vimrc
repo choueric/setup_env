@@ -35,6 +35,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'chiel92/vim-autoformat'
 Plug 'tpope/vim-fugitive'
 Plug 'rkitover/vim-plugin-AnsiEsc'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -42,6 +43,11 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""
 let g:matchparen_timeout = 20
 let g:matchparen_insert_timeout = 20
+
+""""""""""""""""""""""""""""""""""""""""""""""
+" rust
+""""""""""""""""""""""""""""""""""""""""""""""
+let g:rustfmt_autosave = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " vim-autoformat
