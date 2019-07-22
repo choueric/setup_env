@@ -216,6 +216,12 @@ set laststatus=2
 let g:lightline = {
       \ 'colorscheme': 'OldHope',
       \ }
+let g:lightline.active = {
+    \ 'left': [ [ 'mode', 'paste' ],
+    \           [ 'readonly', 'relativepath', 'modified' ] ],
+    \ 'right': [ [ 'lineinfo' ],
+    \            [ 'percent' ],
+    \            [ 'fileformat', 'fileencoding', 'filetype' ] ] }
 "let g:airline_extensions = []
 "let g:airline_highlighting_cache = 1
 "let g:airline_section_z = '%3p%%/%L (%4l,%3v)'
