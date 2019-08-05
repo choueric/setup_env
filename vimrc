@@ -14,7 +14,6 @@ Plug 'fatih/vim-go'
 Plug 'itchyny/lightline.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'lrvick/Conque-Shell'
-Plug 'Valloric/YouCompleteMe'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
 Plug 'geoffharcourt/vim-matchit'
@@ -36,6 +35,7 @@ Plug 'chiel92/vim-autoformat'
 Plug 'tpope/vim-fugitive'
 Plug 'rkitover/vim-plugin-AnsiEsc'
 Plug 'rust-lang/rust.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -43,6 +43,15 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""
 let g:matchparen_timeout = 20
 let g:matchparen_insert_timeout = 20
+
+""""""""""""""""""""""""""""""""""""""""""""""
+" coc.nvim
+""""""""""""""""""""""""""""""""""""""""""""""
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " rust
@@ -73,6 +82,7 @@ map <F9> <Leader>ci
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " vim-sequence-diagram
+" syntax please refer to https://bramp.github.io/js-sequence-diagrams/
 """"""""""""""""""""""""""""""""""""""""""""""
 nmap <unique> <leader>s <Plug>GenerateDiagram
 
