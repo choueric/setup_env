@@ -1,0 +1,69 @@
+diff --git a/shell/key-bindings.bash b/shell/key-bindings.bash
+index 2ecf685..f0565b2 100644
+--- a/shell/key-bindings.bash
++++ b/shell/key-bindings.bash
+@@ -11,6 +11,38 @@ __fzf_select__() {
+   echo
+ }
+ 
++is_in_git_repo() {
++  git rev-parse HEAD > /dev/null 2>&1
++}
++
++gitst() {
++  # "Nothing to see here, move along"
++  is_in_git_repo || return
++
++  local cmd="${FZF_CTRL_T_COMMAND:-"command git status -s"}"
++
++  eval "$cmd" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_CTRL_T_OPTS" fzf -m "$@" | while read -r item; do
++    echo "$item" | awk '{print $2}'
++  done
++  echo
++}
++
++gitbranch() {
++  # "Nothing to see here, move along"
++  is_in_git_repo || return
++
++  local cmd="${FZF_CTRL_T_COMMAND:-"command git branch --no-color"}"
++
++  eval "$cmd" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_CTRL_T_OPTS" fzf -m "$@" | while read -r item; do
++  if [[ ${item:0:1} == "*" ]]; then
++      echo "$item" | sed 's/^..//'
++  else
++      echo "$item"
++  fi
++  done
++  echo
++}
++
+ if [[ $- =~ i ]]; then
+ 
+ __fzf_use_tmux__() {
+@@ -70,6 +102,12 @@ if [[ ! -o vi ]]; then
+   bind '"\er": redraw-current-line'
+   bind '"\e^": history-expand-line'
+ 
++  # CTRL-G - list files of git status
++  bind '"\C-g": " \C-u \C-a\C-k$(gitst)\e\C-e\C-y\C-a\C-y\ey\C-h\C-e\er \C-h"'
++
++  # CTRL-L - list files of git branches
++  bind '"\C-l": " \C-u \C-a\C-k$(gitbranch)\e\C-e\C-y\C-a\C-y\ey\C-h\C-e\er \C-h"'
++
+   # CTRL-T - Paste the selected file path into the command line
+   if [ $BASH_VERSINFO -gt 3 ]; then
+     bind -x '"\C-t": "fzf-file-widget"'
+@@ -85,6 +123,12 @@ if [[ ! -o vi ]]; then
+   # ALT-C - cd into the selected directory
+   bind '"\ec": " \C-e\C-u`__fzf_cd__`\e\C-e\er\C-m"'
+ else
++  # CTRL-G - list files of git status
++  bind '"\C-g": "\C-x\C-a$a \C-x\C-addi$(gitst)\C-x\C-e\C-x\C-a0Px$a \C-x\C-r\C-x\C-axa "'
++
++  # CTRL-L - list files of git branches
++  bind '"\C-l": "\C-x\C-a$a \C-x\C-addi$(gitbranch)\C-x\C-e\C-x\C-a0Px$a \C-x\C-r\C-x\C-axa "'
++
+   # We'd usually use "\e" to enter vi-movement-mode so we can do our magic,
+   # but this incurs a very noticeable delay of a half second or so,
+   # because many other commands start with "\e".
