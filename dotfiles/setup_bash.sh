@@ -8,7 +8,32 @@ LIGHT_GREEN="\[\033[1;32m\]"
  LIGHT_GRAY="\[\033[0;37m\]"
  COLOR_NONE="\[\e[0m\]"
 
-# prompt
+# termianl window title
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+
+    # Show the currently running command in the terminal title:
+    # http://www.davidpashley.com/articles/xterm-titles-with-bash.html
+    show_command_in_title_bar() {
+        case "$BASH_COMMAND" in
+            # The command is trying to set the title bar as well;
+            # this is most likely the execution of $PROMPT_COMMAND.
+            # In any case nested escapes confuse the terminal, so don't
+            # output them.
+            *\033]0*);;
+            "set_bash_prompt");;
+            *) echo -ne "\033]0;Terminal: ${BASH_COMMAND}\007";;
+        esac
+    }
+    trap show_command_in_title_bar DEBUG
+    ;;
+*)
+    ;;
+esac
+
+# command line prompt
 function git_branch {
    branch="`git branch 2>/dev/null | grep "^\*" | sed -e "s/^\*\ //"`"
    if [ "${branch}" != "" ];then
