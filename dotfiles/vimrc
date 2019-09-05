@@ -36,6 +36,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'rkitover/vim-plugin-AnsiEsc'
 Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-sleuth'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""
