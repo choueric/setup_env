@@ -88,6 +88,10 @@ handle_extension() {
             jq --color-output . "${FILE_PATH}" && exit 5
             python -m json.tool -- "${FILE_PATH}" && exit 5
             ;;
+        # PKG
+        pkg)
+            /home/haishanz/usr/bin/PkgTool ${FILE_PATH} && exit 0
+            ;;
     esac
 }
 
