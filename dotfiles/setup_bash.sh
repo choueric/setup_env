@@ -69,6 +69,10 @@ PROMPT_COMMAND=set_bash_prompt
 alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
+alias lt='/bin/ls -tl --color=always | head'
+alias l1='/bin/ls -t | head -n 1'
+alias ls='exa'
+
 alias less='less -N -R'
 alias suredo='sudo !!'
 alias gotop='cd `git rev-parse --show-toplevel`'
@@ -79,28 +83,17 @@ alias minicom='minicom -c on'
 alias grep='grep --color=auto --exclude-dir=.git -I'
 alias fgrep='fgrep --color=auto --exclude-dir=.git'
 alias egrep='egrep --color=auto --exclude-dir=.git'
-alias ag="ag --color-match '1;31' --nobreak"
+alias ag="ag --color-match '1;31' --nobreak --ignore fw-tests"
 alias less='less -r'
 alias diff='colordiff'
 alias rm='trash -i '
 alias mv='mv -i'
-
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    eval "`dircolors -b`"
-    alias ls='ls -F --color=always'
-    alias ll='ls -l --color=always'
-    alias la='ls -a --color=always'
-    alias lt='ls -tl --color=always | head'
-	# sudo apt install trash-cli
-fi
+alias du="ncdu -rr -x"
 
 # golang
-export GOPATH=$HOME/usr/go
-export PATH=$PATH:$GOPATH/bin
 export KBDASHBOARD=$GOPATH/src/github.com/choueric/kbdashboard
-export XGB=$GOPATH/src/github.com/choueric/xgb
+export XGB=$HOME/workspace/git/xgb
+export PATH=$HOME/usr/go/bin:$GOPATH/bin:$PATH
 
 # path
 export PATH=$HOME/usr/bin:$PATH

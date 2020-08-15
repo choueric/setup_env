@@ -112,3 +112,5 @@ source $HOME/.setup_bash.sh
 source $HOME/.workplacerc
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export GOPATH=$HOME/go
