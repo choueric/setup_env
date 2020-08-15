@@ -37,6 +37,7 @@ Plug 'rkitover/vim-plugin-AnsiEsc'
 Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-sleuth'
+Plug 'nvie/vim-flake8'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -90,13 +91,13 @@ nmap <unique> <leader>s <Plug>GenerateDiagram
 """"""""""""""""""""""""""""""""""""""""""""""
 " vim-linux-coding-style
 """"""""""""""""""""""""""""""""""""""""""""""
-let g:linuxsty_patterns = [ "/fw-kernel", "/g7apc-linux-2.6-imx" ]
+let g:linuxsty_patterns = [ "/linux-kernel-seqped", "/g7apc-linux-2.6-imx" ]
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " ack
 """"""""""""""""""""""""""""""""""""""""""""""
 if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+  let g:ackprg = 'ag --vimgrep -ws'
 endif
 nnoremap <silent> ? :Ack!<CR>
 
@@ -166,13 +167,7 @@ set tags=./.tags;,.tags
 " vim-go
 """"""""""""""""""""""""""""""""""""""""""""""
 let g:go_fmt_command = "goimports"
-
-""""""""""""""""""""""""""""""""""""""""""""""
-" YouCompleteMe
-""""""""""""""""""""""""""""""""""""""""""""""
-let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
-let g:ycm_enable_diagnostic_highlighting = 0
-let g:ycm_enable_diagnostic_signs = 0
+au BufRead,BufNewFile *.tmpl set filetype=gohtmltmpl
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " TagBar
@@ -236,9 +231,11 @@ let g:lightline.active = {
 "let g:airline_extensions = []
 "let g:airline_highlighting_cache = 1
 "let g:airline_section_z = '%3p%%/%L (%4l,%3v)'
+let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing', 'long', 'mixed-indent-file' ]
+let b:airline_whitespace_checks = [ 'indent', 'trailing', 'long', 'mixed-indent-file', 'conflicts' ]
 
 """"""""""""""""""""""""""""""""""""""""""""""
-" vimwiki 
+" vimwiki
 """"""""""""""""""""""""""""""""""""""""""""""
 let g:vimwiki_use_mouse = 1
 let wiki = {}
@@ -261,7 +258,7 @@ let g:vimwik_folding = 0
 let g:vimwik_CJK_length = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""
-" formatoptions
+" format options
 " see more `:help fo-table` and `:help fo`
 " use 'gq' to format select texts in visual mode
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -280,12 +277,6 @@ set guioptions-=m
 set guioptions-=T
 set guioptions-=r
 set guioptions-=L
-" use spaces to insert <tab>
-set expandtab
-" number of spaces to insert tab
-set tabstop=4
-" Number of spaces to use for each step of (auto)indent. 
-set shiftwidth=4
 
 set colorcolumn=80
 set modeline
@@ -293,6 +284,8 @@ set modelines=5
 set nofoldenable
 
 highlight Pmenu ctermfg=Black ctermbg=DarkGrey
+hi VimwikiCode ctermfg=yellow
+hi VimwikiPre ctermfg=Gray
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " tabline
@@ -337,13 +330,6 @@ set ic
 highlight Search ctermfg=White ctermbg=Blue
 highlight Search guifg=White guibg=Orange
 set hls
-
-""""""""""""""""""""""""""""""""""""""""""""""
-" indent
-""""""""""""""""""""""""""""""""""""""""""""""
-filetype indent on
-set autoindent
-filetype plugin indent on
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " auto complete
@@ -394,16 +380,12 @@ imap <F3> <esc>"+y
 map <F4> "+p
 imap <F4> <esc>"+p
 
-" 快捷键入当前时间
+" input current date & time
 map <F7> a<C-R>=strftime("%Y-%m-%d %T")<CR><esc>
 imap <F7> <C-R>=strftime("%Y-%m-%d %T")<CR><esc>
 
-" add '//' in the head of line to comment it
-"map <F9> I// <esc>
-"imap <F9> <esc>I// <esc>
-"" revert <F9>
-"map <F10> ^xxx
-"imap <F10> <esc>^xxx
+" map F7 as lint command based on file type
+autocmd FileType go nnoremap <buffer> <F7> :GoLint<CR>
 
 " make a long line into several lines to become a paragraph.
 map <F12> Vgq
@@ -490,3 +472,21 @@ hi def InterestingWord3 guifg=#000000 ctermfg=16 guibg=#8cffba ctermbg=121
 hi def InterestingWord4 guifg=#000000 ctermfg=16 guibg=#b88853 ctermbg=137
 hi def InterestingWord5 guifg=#000000 ctermfg=16 guibg=#ff9eb8 ctermbg=211
 hi def InterestingWord6 guifg=#000000 ctermfg=16 guibg=#ff2c4b ctermbg=195
+
+""""""""""""""""""""""""""""""""""""""""""""""
+" Coding style
+""""""""""""""""""""""""""""""""""""""""""""""
+filetype plugin indent on
+filetype indent on
+set autoindent
+set copyindent
+set smartindent
+
+set smarttab
+set expandtab
+set shiftwidth=4
+set tabstop=4
+
+" Show trailing whitespace:
+highlight ZhsExtraWhitespace ctermbg=red guibg=red
+match ZhsExtraWhitespace /\s\+$\| \+\ze\t\|\t \+\ze/
