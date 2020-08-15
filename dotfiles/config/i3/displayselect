@@ -2,9 +2,10 @@
 
 ROOTDIR=$HOME/.screenlayout
 
-chosen=$(printf "office\\nhome\\nmanual" | rofi -dmenu -i -p "Select display arangement:") &&
+chosen=$(printf "office\\nhome\\nvertical\\nmanual" | rofi -dmenu -i -p "Select display arangement:") &&
     case "$chosen" in
         "office") $ROOTDIR/office.sh;;
         "home") $ROOTDIR/home.sh;;
+        "vertical") $ROOTDIR/vertical.sh;;
         "manual") arandr;;
     esac
